@@ -1,0 +1,46 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "target": "es2015",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strictNullChecks": false,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@antrag/*": [
+        "src/app/antrag/*"
+      ],
+      "@tarifierung/*": [
+        "src/app/tarifierung/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "resolveJsonModule": true
+  }
+}

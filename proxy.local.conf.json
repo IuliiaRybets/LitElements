@@ -1,0 +1,23 @@
+{
+  "/api/tarifierung/*": {
+    "target": "http://localhost:8080/",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/tarifierung": ""
+    }
+  },
+  "/api/police/*": {
+    "target": "http://localhost:8080/",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/police": ""
+    }
+  },
+  "/api/*": {
+    "target": "http://localhost:8080/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

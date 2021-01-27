@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://stest.ruv.de/hausratversicherung/hausratversicherung-berechnen/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

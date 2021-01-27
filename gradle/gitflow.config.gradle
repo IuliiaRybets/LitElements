@@ -1,0 +1,25 @@
+// sonarqube only makes sense for PR as they have a target to check against
+project.tasks.sonarqube.setOnlyIf {
+  grgit.branch.current().name.toLowerCase() =~ /pr-[0-9]+|master|develop/
+}
+
+// set the sonar branch target to the target of the pull request (comming from jenkins property CHANGE_TARGET
+sonarqube {
+  properties {
+    property "sonar.branch.target", System.getenv('CHANGE_TARGET')
+  }
+}
+
+cloudlift {
+  node {
+    docker {
+      def branchName = project.findProperty("gitBranchName")
+      if (branchName =~ /^rc-.*/) {
+        tag = "${branchName}-${project.findProperty('gitCommitId')}"
+      } else if (branchName =~ /^develop$/) {
+        tag = "${project.version}-${project.findProperty('gitCommitId')}"
+      }
+      pushableBranches = [/^master/, /^develop/, /^rc-.*/]
+    }
+  }
+}
