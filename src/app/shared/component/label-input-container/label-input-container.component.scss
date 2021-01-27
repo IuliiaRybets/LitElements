@@ -1,0 +1,73 @@
+@import '../../../../styles/variables/breakpoints';
+@import '../../../../styles/variables/colors';
+
+.label-input-container {
+  position: relative;
+  margin-bottom: 2px;
+  padding: 5px 5px;
+
+  .info-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    @media screen and (min-width: $breakpoint-small) {
+      top: 20px;
+      right: 15px;
+    }
+  }
+
+  .container-label {
+    display: block;
+    width: 100%;
+    max-width: calc(100% - 30px);
+    margin-bottom: 5px;
+  }
+
+  .container-input {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  @media screen and (min-width: $breakpoint-small) {
+    padding: 10px 20px;
+
+    .info-text {
+      position: absolute;
+      background-color: $ruv-blue;
+      color: white;
+      padding: 21px 28px 21px 18px;
+      z-index: 1;
+      width: 80%;
+      right: 10px;
+      top: 8px;
+    }
+  }
+
+  @media screen and (min-width: $breakpoint-small) {
+    .container-label {
+      margin-top: 10px;
+      margin-right: 20px;
+    }
+
+    .container-control {
+      max-width: calc(100% - 30px);
+
+      .container-input {
+        margin: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $breakpoint-medium) {
+    .container-label {
+      margin-top: 10px;
+      margin-right: 20px;
+    }
+  }
+
+}
+
+
+
+

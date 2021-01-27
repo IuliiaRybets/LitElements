@@ -1,0 +1,52 @@
+@import '~src/styles/variables/colors';
+
+div.date {
+  &.disabled {
+    background-color: #eee;
+  }
+
+  &.error-border {
+    border: 1px solid $error-color;
+  }
+
+  border: 1px solid #CACACA;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  padding: 0 0.5rem;
+
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+
+  input {
+    &:disabled {
+      border-bottom: none;
+      background-color: #eee;
+      color: black;
+      -webkit-text-fill-color: black
+    }
+
+    box-shadow: 1px 3px 1px -2px #898d8d;
+    border: none;
+    border-radius: 0;
+    margin: 4px 1px;
+    padding: 0 0;
+    text-align: center;
+    height: 30px;
+    width: 45px;
+  }
+
+  input[name="year"] {
+    width: 60px;
+  }
+
+  .dot {
+    width: 0.15em;
+    height: 0.15em;
+    margin-top: 1.3em;
+    background-color: #898d8d;
+    border-radius: 50%;
+  }
+}

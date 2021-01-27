@@ -1,0 +1,7 @@
+<div class="radiobutton">
+  <input type="radio" (change)="changeValue()"
+         [id]="id + '_input'" [value]=value
+         [name]="name"
+         [checked]="activeValue === value">
+  <label [for]="id + '_input'">{{label}}</label>
+</div>

@@ -1,0 +1,235 @@
+<form (ngSubmit)="onAbschliessen()" autocomplete="off">
+
+  <div id="basisdaten" class="box">
+    <div class="row">
+     
+      <h2>{{uebsersichtText.basis.headline}}</h2>
+
+      <ul class="overview">
+        <li>
+          <span>{{uebsersichtText.basis.labels.wohnflaeche}}</span>
+          <span>{{tarifdatenModel?.tarifierungsparameter?.wohnflaeche}} m²</span>
+        </li>
+       <!-- <li>
+          <span>{{uebsersichtText.basis.labels.plz}}</span>
+          <span>{{kundendaten.plz}} </span>
+        </li>-->
+      </ul>
+    </div>
+  </div>
+
+  <div id="tarifdaten" class="box">
+    <div class="row">
+
+      <h2>{{uebsersichtText.gewuenschteVersicherung.headline}}</h2>
+
+      <ul class="overview">
+        <li>
+          <span>{{uebsersichtText.gewuenschteVersicherung.labels.tarif}}</span>
+          <span>Hausrat {{tarifdatenModel?.selectedTarif?.name}}</span>
+        </li>
+        <li>
+          <span>{{uebsersichtText.gewuenschteVersicherung.labels.zahlungsperiode}}</span>
+        </li>
+       <!--  <li [ngSwitch]="tarifdatenModel?.tarifierungsparameter?.zahlweise">
+          <span>{{uebsersichtText.gewuenschteVersicherung.labels.beitrag}}</span>
+           <span
+            *ngSwitchCase="zahlweiseEnum.inland">{{tarifdatenModel?.selectedTarif?.beitraege?.inland?.brutto | currency: 'EUR' : 'code'}}</span>
+        <span
+            *ngSwitchCase="zahlweiseEnum.ausland">{{tarifdatenModel?.selectedTarif?.beitraege?.ausland?.brutto | currency: 'EUR' : 'code'}}</span>
+              </li>-->
+        <li>
+          <span>{{uebsersichtText.gewuenschteVersicherung.labels.gesamtbetrag}}</span>
+        <!--  <span>{{berechneterGesamtbeitrag | currency: 'EUR' : 'code'}}</span>-->
+        </li>
+        <li>
+          <span>{{uebsersichtText.gewuenschteVersicherung.labels.selbstbeteiligung}}</span>
+          <span>{{tarifdatenModel?.tarifierungsparameter.selbstbeteiligung ? tarifergebnisText.selbstbeteiligung.values.true : tarifergebnisText.selbstbeteiligung.values.false}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--<div class="box">
+    <div class="row">
+      <a appOnBackTracking action="change" details="{{uebsersichtText.kundendaten.headline}}" class="change-data" [routerLink]="routes.absolute.kundendaten">
+        <span class="icon icon-pencil"></span>{{uebsersichtText.aendern}}
+      </a>
+      <h2>{{uebsersichtText.kundendaten.headline}}</h2>
+
+      <ul class="overview">
+        <li>
+          <span>{{uebsersichtText.kundendaten.labels.name}}</span>
+          <span>{{kundendaten.anrede}} {{kundendaten.vorname}}
+            {{kundendaten.nachname}}</span>
+        </li>
+        <li>
+          <span>{{uebsersichtText.kundendaten.labels.adresse}}</span>
+          <span>{{kundendaten.strasse}} {{kundendaten.hausnummer}}<br/>
+            {{kundendaten.plz}} {{kundendaten.ort}}</span>
+        </li>
+        <li>
+          <span>{{uebsersichtText.kundendaten.labels.geburtsdatum}}</span>
+          <span>{{kundendaten.geburtsdatum | date : 'dd.MM.yyyy'}}</span>
+        </li>
+        <li>
+          <span>{{uebsersichtText.kundendaten.labels.email}}</span>
+          <span>{{kundendaten.email}}</span>
+        </li>
+      </ul>
+      <p>{{uebsersichtText.kundendaten.text}}</p>
+    </div>
+  </div>-->
+
+  <div class="box">
+    <div class="row">
+     
+      <h2>{{uebsersichtText.vertragsdaten.headline}}</h2>
+
+      <ul class="overview">
+       <!-- <li>
+          <span>{{uebsersichtText.vertragsdaten.labels.versicherungsbeginn}}</span>
+          <span>{{vertragsdaten.versicherungsbeginn | date : 'dd.MM.yyyy'}}</span>
+        </li>
+        <li>
+          <span>{{uebsersichtText.vertragsdaten.labels.gebaeudeart}}</span>
+          <span>{{vertragsdaten?.gebaeudeart}}</span>
+        </li>
+        <li>
+          <span>{{uebsersichtText.vertragsdaten.labels.vorversicherung}}</span>
+          <span>{{vertragsdaten?.vorversicherungVorhanden ?
+            vertragsdatenText.vorversicherung.radiobuttons.vorhanden : vertragsdatenText.vorversicherung.radiobuttons.nichtVorhanden}}</span>
+        </li>
+        <ng-container *ngIf="vertragsdaten?.vorversicherungVorhanden">
+          <li>
+            <span>{{uebsersichtText.vertragsdaten.labels.gesellschaft}}</span>
+            <span>{{vertragsdaten?.gesellschaft?.name}}</span>
+          </li>
+          <li>
+            <span>{{uebsersichtText.vertragsdaten.labels.vertragsende}}</span>
+            <span>{{vertragsdaten?.vertragsende | date : 'dd.MM.yyyy'}}</span>
+          </li>
+          <li>
+            <span>{{uebsersichtText.vertragsdaten.labels.kuendigung}}</span>
+            <span>{{vertragsdaten?.gekuendigt}}</span>
+          </li>
+          <li>
+            <span>{{uebsersichtText.vertragsdaten.labels.vorschaeden}}</span>
+            <span>{{vertragsdaten?.schadenGemeldet ?
+              vertragsdatenText.schadenGemeldet.radiobuttons.gemeldet : vertragsdatenText.schadenGemeldet.radiobuttons.nichtGemeldet}}</span>
+          </li>
+          <li *ngIf="tarifdatenModel.tarifierungsparameter.elementarschaeden">
+            <span>{{uebsersichtText.vertragsdaten.labels.elementarschaeden}}</span>
+            <span>{{vertragsdaten?.elementarschaeden ?
+              vertragsdatenText.elementarschaeden.radiobuttons.eingetreten : vertragsdatenText.elementarschaeden.radiobuttons.nichtEingetreten}}</span>
+          </li>
+        </ng-container>-->
+      </ul>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="row">
+    
+      <h2>{{uebsersichtText.zahlungsdaten.headline}}</h2>
+
+      <ul class="overview">
+        <li>
+          <span>{{uebsersichtText.zahlungsdaten.methode}}</span>
+          <!--<span>{{uebsersichtText.zahlungsdaten.zahlart[asZahlart(zahlungsdaten.zahlart)]}}</span>-->
+        </li>
+        <!--<li *ngIf="zahlungsdaten.zahlart === zahlartEnum.sepa">
+          <span>{{uebsersichtText.zahlungsdaten.iban}}</span>
+          <span>{{zahlungsdaten.iban}}</span>
+        </li>-->
+      </ul>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="row">
+      <h2>{{uebsersichtText.plusAnLeistungen.headline}}</h2>
+
+      <!--<div>
+        <ul class="plusleistungen">
+          <li
+            *ngFor="let item of tarifergebnisText.tarife[asTarif(tarifdatenModel.selectedTarif?.name)]?.tarifdetails"><span
+            class="icon icon-checkmark"></span><span>{{item}}</span></li>
+        </ul>
+      </div>-->
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="row vertragsgrundlagen">
+      <h2>{{uebsersichtText.vertragsgrundlagen.headline}}</h2>
+      <p>{{uebsersichtText.vertragsgrundlagen.text1}}</p>
+      <!--<ul class="linklist">
+        <li><a target="_blank"
+               appOnClickDownloadTracking [fileName]="DokumentenNamen.ipid"
+               [href]="uebsersichtText.vertragsgrundlagen.pdfs.ipid[asTarif(tarifdatenModel.selectedTarif?.name)]">
+          <span class="icon icon-download"></span>{{uebsersichtText.vertragsgrundlagen.pdfs.ipid.label}}</a>
+        </li>
+        <li><a target="_blank"
+               appOnClickDownloadTracking [fileName]="DokumentenNamen.avb"
+               [href]="uebsersichtText.vertragsgrundlagen.pdfs.avb[asTarif(tarifdatenModel.selectedTarif?.name)]">
+          <span class="icon icon-download"></span>{{uebsersichtText.vertragsgrundlagen.pdfs.avb.label}}</a>
+        </li>
+        <li><a target="_blank"
+               appOnClickDownloadTracking [fileName]="DokumentenNamen.vvg"
+               [href]="uebsersichtText.vertragsgrundlagen.pdfs.vvg[asTarif(tarifdatenModel.selectedTarif?.name)]">
+          <span class="icon icon-download"></span>{{uebsersichtText.vertragsgrundlagen.pdfs.vvg.label}}</a>
+        </li>
+        <li><a target="_blank" [href]="uebsersichtText.vertragsgrundlagen.pdfs.merkblatt.url"
+               appOnClickDownloadTracking [fileName]="DokumentenNamen.merkblattDV">
+          <span class="icon icon-download"></span>{{uebsersichtText.vertragsgrundlagen.pdfs.merkblatt.label}}</a>
+        </li>
+        <li><a target="_blank" [href]="uebsersichtText.vertragsgrundlagen.pdfs.widerruf.url"
+               appOnClickDownloadTracking [fileName]="DokumentenNamen.widerrufbelehrung">
+          <span class="icon icon-download"></span>{{uebsersichtText.vertragsgrundlagen.pdfs.widerruf.label}}</a>
+        </li>
+      </ul>-->
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="row">
+      <h2><label class="required">{{uebsersichtText.onlineAbschluss.headline}}</label></h2>
+      <p>{{uebsersichtText.onlineAbschluss.text}}</p>
+      <div class="container-checkbox">
+      
+      </div>
+      <div *ngIf="beratungsverzicht?.invalid && beratungsverzicht?.touched"
+           appOnErrorTracking
+           class="error-text">{{uebsersichtText.onlineAbschluss.error}}
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="row">
+      <h2>{{uebsersichtText.einwilligungen.headline}}</h2>
+      <p>{{uebsersichtText.einwilligungen.einleitung}}</p>
+      <p [innerHTML]="uebsersichtText.einwilligungen.einwilligungruv"></p>
+      <p [innerHTML]="uebsersichtText.einwilligungen.weitereEinwilligung"></p>
+      <div class="container-checkbox">
+       
+      </div>
+      <div class="container-checkbox" *ngIf="kundendaten.festnetzVorwahl || kundendaten.mobilVorwahl">
+        
+      </div>
+
+      <div class="widerrufBox">
+        <p><strong>{{uebsersichtText.einwilligungen.wiederrufen}}</strong></p>
+        <p [innerHTML]="uebsersichtText.einwilligungen.kontaktdaten"></p>
+      </div>
+      <p>{{uebsersichtText.einwilligungen.unternehmen}}</p>
+    </div>
+  </div>
+
+  <div class="button-row">
+  <!--   <button type="button" class="ruv-button" appOnBackTracking [routerLink]="[routes.absolute.zahlungsdaten]">Zurück</button>
+   <button type="submit" class="primary ruv-button">{{uebsersichtText.buttons.abschliesen[asZahlart(zahlungsdaten.zahlart)]}}</button>-->
+  </div>
+  <div class="secured">{{sharedText.secured}}</div>
+</form>

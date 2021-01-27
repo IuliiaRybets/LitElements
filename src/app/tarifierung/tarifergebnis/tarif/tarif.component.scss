@@ -1,0 +1,125 @@
+@import '../../../../styles/variables/_colors.scss';
+
+div.tarif {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  min-height: 100%;
+  border: solid 5px $container-bg-color;
+  background-color: white;
+
+  &.active {
+    background-color: $ruv-blue;
+    border: 5px solid $ruv-blue;
+
+    .head {
+      color: white;
+      background-color: $ruv-blue;
+    }
+
+    .tarif-details {
+      background-color: white;
+    }
+
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .head {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $container-bg-color;
+    padding-top: 30px;
+  }
+
+  .calc {
+    color: transparent !important;
+    text-shadow: 0 0 5px rgba(0, 0, 0, .5) !important;
+  }
+
+  .tarif-row {
+    align-self: center;
+    margin: 10px 0;
+
+    &.topseller {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $ruv-blue;
+      border-radius: 5px;
+      height: 20px;
+      font-size: .8em;
+      background-color: $ruv-mint;
+      position: absolute;
+      top: 0;
+      padding: 0 10px;
+    }
+
+    &.zahlweise {
+      font-size: .8em;
+      font-weight: normal;
+    }
+
+    &.tarifname {
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row-reverse;
+      font-size: 1.5em;
+      font-family: MarselisPro-Bold, serif;
+      font-weight: bold;
+    }
+  }
+
+  .tarif-details {
+    padding: 0 10px 15px 10px;
+    flex-grow: 1;
+    font-size: .9rem;
+    font-weight: normal;
+
+
+    ul {
+      padding: 0;
+      margin-bottom: 0;
+
+      &:before {
+        color: #53c00a;
+        content: "\2713 ";
+        font-family: ruv-iconfont;
+        position: absolute;
+      }
+    }
+
+    li {
+      margin-bottom: 0;
+      margin-left: 20px;
+    }
+
+    > ul > li {
+      list-style-type: none;
+    }
+  }
+
+  .action-button {
+    display: flex;
+    justify-content: center;
+    padding: 0 15px 15px;
+    background-color: white;
+  }
+
+  .preis {
+    font-size: 2em;
+    font-family: MarselisPro-Bold, serif;
+    font-weight: bold;
+  }
+
+}

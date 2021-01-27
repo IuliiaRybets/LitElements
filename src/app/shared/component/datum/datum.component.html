@@ -1,0 +1,40 @@
+<div class="date"
+     [ngClass]="{
+        'error-border': isInvalid,
+        'disabled': disabled
+     }">
+  <span class="input-wrapper" (focusout)="onFocusLost()" (keyup)="onInputKeyUp()" (focusin)="$event.target.select()">
+    <input #day
+           maxlength="2"
+           name="day"
+           placeholder="tt"
+           appNumbersOnly
+           type="tel"
+           [(ngModel)]="date.day"
+           [disabled]="disabled"
+           (blur)="fillDay()"
+           (keyup)="onDayKeyUp($event)"/>
+    <span class="dot"></span>
+    <input #month
+           maxlength="2"
+           name="month"
+           placeholder="mm"
+           appNumbersOnly
+           type="tel"
+           [(ngModel)]="date.month"
+           [disabled]="disabled"
+           (blur)="fillMonth()"
+           (keyup)="onMonthKeyUp($event)"/>
+    <span class="dot"></span>
+    <input #year
+           maxlength="4"
+           name="year"
+           placeholder="jjjj"
+           appNumbersOnly
+           type="tel"
+           [(ngModel)]="date.year"
+           [disabled]="disabled"
+           (blur)="fillYear()"
+           (keyup)="onYearKeyUp($event)"/>
+    </span>
+</div>

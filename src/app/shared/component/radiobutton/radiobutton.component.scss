@@ -1,0 +1,56 @@
+@import '../../../../styles/variables/colors';
+
+.radiobutton {
+  position: relative;
+
+  input {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+  }
+
+
+  label {
+    padding: 10px 10px 10px 45px;
+    font-weight: normal;
+    line-height: 24px;
+    height: 100%;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.25rem;
+
+    &::before {
+      content: '';
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      border: 1px solid $ruv-ui-grey-3;
+      position: absolute;
+      top: calc(50% - 12px);
+      left: 10px;
+      background-color: #fff;
+      pointer-events: none;
+    }
+
+    &:hover {
+      &::before {
+        border-color: $ruv-blue;
+      }
+    }
+  }
+
+  input:checked + label::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: $ruv-blue;
+    top: calc(50% - 6px);
+    left: 16px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+  }
+
+}
+

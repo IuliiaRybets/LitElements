@@ -1,0 +1,6 @@
+@mixin border($color) {
+  border: 1px solid $color;
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 10px;
+}

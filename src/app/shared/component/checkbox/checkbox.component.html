@@ -1,0 +1,7 @@
+<div class="checkbox">
+  <input type="checkbox" (change)="changeValue($event)"
+         [id]="id + '_input'"
+         [name]="name"
+         [checked]="internalValue">
+  <label [for]="id + '_input'" [class.required]="required">{{label}}</label>
+</div>

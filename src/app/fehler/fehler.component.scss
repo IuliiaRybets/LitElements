@@ -1,0 +1,36 @@
+@import "../../styles/variables/_breakpoints.scss";
+
+.error-container {
+  text-align: center;
+  flex-direction: column;
+}
+
+.compass {
+  background-image: url("~src/assets/images/error-page-compass-retina.gif");
+  background-size: 110px 110px;
+  height: 110px;
+  width: 110px;
+  margin: auto auto 21px;
+
+  @media (min-width: $breakpoint-medium) {
+    background-size: 130px 130px;
+    height: 130px;
+    width: 130px;
+    margin-bottom: 36px;
+  }
+}
+
+.button-row {
+  align-self: flex-end;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: $breakpoint-medium) {
+  .button.ruv-button.primary {
+    max-width: 222px;
+  }
+}

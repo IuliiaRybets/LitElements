@@ -1,0 +1,11 @@
+<div class="error-container">
+  <div class="icon compass"></div>
+  <br>
+  <h2 class="message">{{fehlerText.message}}</h2>
+  <p class="description">{{fehlerText.description}}</p>
+  <div class="button-row">
+    <button type="button" class="primary ruv-button" (click)="onTerminVereinbaren()"
+            id="terminvereinbaren"><span class="icon icon-calendar" appOnClickTerminvereinbarungTracking></span>{{sharedText.buttons.terminVereinbaren}}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+// see https://ruv-markenportal.de/application/manual/view/id/119
+@import 'variables/colors';
+
+html {
+  font-size: 16px;
+  line-height: 1.5rem;
+}
+
+body {
+  font-family: MarselisPro, Verdana, Arial, serif;
+  font-size: 1em;
+  color: $ruv-blue;
+}
+
+h1, h2, h3 {
+  font-family: MarselisPro-Bold, serif;
+  margin: 5px 0;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+}
+
+p {
+  &.small {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+
+  &.large {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+button {
+  line-height: 1.3em;
+  font-family: MarselisPro-Bold, 'Rockwell Bold', Rockwell, 'Courier Bold', Courier, Georgia, 'Liberation Serif', serif;
+}
+
+small {
+  font-size: 80%;
+}
+
+@font-face {
+  font-family: 'ruv-iconfont';
+  src: url("fonts/ruv-iconfont.eot");
+  src: url("fonts/ruv-iconfont.eot?#iefix") format("embedded-opentype"),
+  url("fonts/ruv-iconfont.woff") format("woff"),
+  url("fonts/ruv-iconfont.ttf") format("truetype"),
+  url("fonts/ruv-iconfont.svg#ruv_iconfontregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarselisPro';
+  src: url("fonts/MarselisPro.eot");
+  src: url("fonts/MarselisPro.eot?#iefix") format("embedded-opentype"),
+  url("fonts/MarselisPro.woff2") format("woff2"),
+  url("fonts/MarselisPro.woff") format("woff"),
+  url("fonts/MarselisPro.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: 'MarselisPro-Bold';
+  src: url("fonts/MarselisPro-Bold.eot");
+  src: url("fonts/MarselisPro-Bold.eot?#iefix") format("embedded-opentype"),
+  url("fonts/MarselisPro-Bold.woff2") format("woff2"),
+  url("fonts/MarselisPro-Bold.woff") format("woff"),
+  url("fonts/MarselisPro-Bold.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: 'MarselisPro-Italic';
+  src: url("fonts/MarselisPro-Italic.eot");
+  src: url("fonts/MarselisPro-Italic.eot?#iefix") format("embedded-opentype"),
+  url("fonts/MarselisPro-Italic.woff2") format("woff2"),
+  url("fonts/MarselisPro-Italic.woff") format("woff"),
+  url("fonts/MarselisPro-Italic.ttf") format("truetype")
+}

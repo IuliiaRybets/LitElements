@@ -1,0 +1,39 @@
+@import '../../../../styles/variables/breakpoints';
+
+.overview {
+  display: flex;
+  justify-content: space-between;
+  max-width: 770px;
+  margin: auto;
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  .highlight {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  @media only screen and (min-width: $breakpoint-small) {
+    justify-content: flex-end;
+
+    div {
+      flex-direction: row;
+
+      &:first-child {
+        margin-right: 20px;
+      }
+
+      span {
+        margin-right: 5px;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,19 @@
+<div class="label-input-container row">
+
+  <app-info-button *ngIf="infoText" [text]="infoText"></app-info-button>
+
+  <div class="container-control" [class.error]="showError">
+    <label *ngIf="labelText" class="container-label" [innerHTML]="labelText"></label>
+
+    <div class="container-input">
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+  <div *ngIf="showError" appOnErrorTracking [error]="errorText" [fieldLabel]="labelText"
+       class="error-text">
+    <p [innerHTML]="errorText"></p>
+  </div>
+
+</div>
+

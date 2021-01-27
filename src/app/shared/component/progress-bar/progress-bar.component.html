@@ -1,0 +1,20 @@
+<!--<ul class="progressbar" *ngIf="isVisible() | async">
+  <li *ngFor="let step of steps; index as i" class="step"
+      [class.completed]="isCompleted(i) | async"
+      [class.active]="isActive(i) | async">
+    <span class="dot">
+    <ng-container *ngIf="isCompleted(i) | async">
+      <a [routerLink]="route(i)">{{i + 1}}</a>
+    </ng-container>
+    <ng-container *ngIf="(isCompleted(i) | async) === false">{{i + 1}}</ng-container>
+    </span> 
+    <span class="greenball" *ngIf="isActive(i) | async"></span>
+    <ng-container *ngIf="isCompleted(i) | async">
+      <span [routerLink]="route(i)" [innerHTML]="step" class="stepLabel"></span>
+    </ng-container>
+    <ng-container *ngIf="(isCompleted(i) | async) === false">
+      <span [innerHTML]="step" class="stepLabel"></span>
+    </ng-container>
+  </li>
+</ul>-->
+

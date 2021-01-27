@@ -1,0 +1,146 @@
+<form [formGroup]="tarifierungForm" (keydown.enter)="onEnter()" autocomplete="off">
+  <p>{{ tarifierungForm.value | json }}</p>
+
+  <div class="container-product">
+    <div class="product-pic"></div>
+    <div class="product-text">
+      <h2 [innerHTML]="label.product.productHeader"></h2>
+      <p [innerHTML]="label.product.productDescription"></p>
+    </div>
+  </div>
+  <div class="container-input" [hidden]="hideFinal" style="min-height: 30vh">
+        <h3>Bestätigung Ihrer Bestellung</h3>
+        <div style="padding: 1em">
+          In folgendem Dokument haben wir Ihren Auftrag noch einmal zusammengefasst.
+          <br>-> <a style="padding-top: 3em" href="assets/bestell_bestaetigung.pdf"> Bestellübersicht</a>
+        </div>
+      </div>
+     <div class="container-input" [hidden]="hideOverview">
+          <h3>Auswahl Übersicht</h3>
+          <div>
+            <div class="input-container">
+              <div><h4>Bereich</h4></div>
+              <div><h4>Paket</h4></div>
+              <div><h4>Anzahl</h4></div>
+              <div><h4>Gebühren in EUR</h4></div>
+            </div>
+           <!-- <div class="input-container">
+              <div>{{this.tarifierungForm.get("berLand").value}}</div>
+              <div>{{this.tarifierungForm.get("paket").value}}</div>
+              <div>{{this.tarifierungForm.get("paketAnzahl").value}}</div>
+              <div>{{this.gebuer | currency: "EUR":'code':'3.2-2':'de'}}</div>
+            </div>-->
+            <div class="input-container" style="margin-top: 1em; padding-top: 1em; border-top: #3e3e42 solid 2px">
+              <div>
+              </div>
+              <div style="align-self: flex-end">
+                <div class="input-container" >
+                  <div style="padding-right: 2em">zzgl. Umsatzsteuer (16%):  </div>
+                  <div>{{this.gebuer | currency: "EUR":'code':'1.2-2':'de'}}</div>
+                </div>
+                <div class="input-container">
+                  <div><h3>Gesamtpreis: </h3></div>
+                  <div><h3>  {{this.gebuer | currency: "EUR":'code':'1.2-2':'de'}}</h3></div>
+                </div>
+              </div>
+            </div>
+            <div [formGroup]="agbFrom">
+              <app-checkbox formControlName="agb" [label]="'Ja, ich stimme den Allgemeinen Geschäftsbedingungen zu.'" required (click)="agbCeck = true"></app-checkbox>
+              <p [hidden]="agbCeck" style="color: red">Bitte akzeptieren Sie die AGB.</p>
+            </div>
+          </div>
+          <div class="input-container">
+            <button [innerText]="'Zurück'" class="ruv-button"
+                    (click)="backToSelection()"></button>
+            <button [innerText]="'Kaufen'" class="primary ruv-button" type="submit"
+                    (click)="confirmBuy()"></button>
+          </div>
+        </div>   
+
+  <div formArrayName="credentials">
+   
+
+    <div class="container-input" [hidden]="hideSelection">
+      <h3 [innerHTML]="label.inputHeader"></h3>
+      <div *ngFor="let unit of credentials.controls; let i=index; let last=last; let first=first;">
+        <div [formGroupName]="i">
+          <div *ngIf="!first" class="del-button" (click)="deleteCredentials(i)">X</div>
+          <div class="input-container">
+            <app-label-input-container [errorText]="label.bereich.errors.default"
+                                       [infoText]="label.bereich.info"
+                                       [labelText]="label.bereich.label"
+                                       [showError]="getBerLandAtIndex(i).touched && getBerLandAtIndex(i).invalid"
+                                       class="infotext-top">
+              <select class="form" formControlName="berLand" id="zalungsperiode_{{i}}" (change)="changeBereich($event)">
+                <option value="" disabled style="display: none;">Bitte auswählen</option>
+                <option *ngFor="let region of REGIONS" [value]="region">{{region}}</option>
+              </select>
+            </app-label-input-container>
+            <app-label-input-container *ngIf="tarifierungForm" [errorText]="label.paket.errors.default"
+                                       [infoText]="label.paket.info"
+                                       [labelText]="label.paket.label"
+                                       [showError]="getPaketAtIndex(i).touched && getPaketAtIndex(i).invalid"
+                                       class="infotext-top"
+                                       style="flex-grow: 2">
+              <select formControlName="paket" class="form" placeholder="State" (change)="changePaket($event, i)" id="paketen_{{i}}">
+                <option value="">Bitte ein Paket auswählen</option>
+                <option *ngFor="let pak of paketen" [value]="pak.name">{{pak.name}}</option>
+              </select>
+            </app-label-input-container>
+          </div>
+
+          <div class="input-container">
+            <app-label-input-container *ngIf="tarifierungForm" [errorText]="label.paketAnzahl.errors.default"
+                                       [infoText]="label.paketAnzahl.info"
+                                       [labelText]="label.paketAnzahl.label"
+                                       [showError]="getPaketAnzahlAtIndex(i).touched && getPaketAnzahlAtIndex(i).invalid"
+                                       class="infotext-top"
+                                       style="flex-grow: 2">
+              <select formControlName="paketAnzahl" class="form" (change)="changeAnzahl($event, i)" id="anzahlen_{{ i }}">
+                <option value="" disabled style="display: none;">Bitte Anzahl auswählen</option>
+                <option *ngFor="let anz of anzahlen" [value]="anz">{{anz}}</option>
+              </select>
+            </app-label-input-container>
+            <app-label-input-container [infoText]="label.gebuehr.info"
+                                       [labelText]="label.gebuehr.label"
+                                       class="infotext-top">
+               <div style="float: right; font-size: 30px; margin: 20px 0">
+                 <label>{{ credentials.at(i).get('unitPrice')?.value | currency: 'EUR' }}</label>
+                </div>
+              </app-label-input-container>
+            </div>
+
+            <hr *ngIf="!last"> 
+          </div>
+        </div>
+            <div class="input-container" style="margin-top: 1em; padding-top: 1em; border-top: #3e3e42 solid 2px">
+              <app-label-input-container>
+              
+              <div style="align-self: flex-end">
+                <div class="input-container" >
+                <div style="padding-right: 2em">zzgl. Umsatzsteuer (16%):  </div>
+                <div>{{ steuer | currency: 'EUR' }}</div>
+                </div>
+              <div class="input-container">
+                <div><h3>Gesamtpreis: </h3></div>
+                <div><h3>  {{ totalSum | currency: 'EUR' }}</h3></div>
+              </div>
+              </div>
+            </app-label-input-container>
+            </div>
+
+        
+         <div class="input-container">
+          <button [innerText]="label.weiterePakete" class="ruv-button"
+          (click)="addCreds()"></button>
+        
+          <button  *ngIf="credentials.controls.last().status" [innerText]="label.berechnenButton" class="primary ruv-button" type="submit"
+          (click)="confirmSelection()" ></button>
+            <!--<button *ngIf="last" [innerText]="label.berechnenButton" class="primary ruv-button" type="submit"></button>
+       --> 
+        </div>
+    </div>
+  </div>
+</form>
+
+

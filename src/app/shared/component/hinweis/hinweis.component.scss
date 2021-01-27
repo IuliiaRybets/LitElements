@@ -1,0 +1,35 @@
+@import '../../../../styles/variables/colors';
+@import '../../../../styles/variables/breakpoints';
+
+$base-size: 1.125rem;
+
+.hinweis {
+  background-color: $ruv-sand;
+  padding: 10px;
+  position: relative;
+
+  span {
+    display: block;
+    font-family: MarselisPro-Bold, sans-serif;
+  }
+
+  @media (min-width: $breakpoint-small) {
+    padding: 20px 10px 20px $base-size*4;
+    &:before {
+      content: '!';
+      height: $base-size*2;
+      width: $base-size*2;
+      border-radius: 50%;
+      border: 2px solid $ruv-blue;
+      position: absolute;
+      top: calc(50% - #{$base-size});
+      left: $base-size;
+      pointer-events: none;
+      text-align: center;
+      font-family: MarselisPro, sans-serif;
+      font-size: $base-size*2;
+      line-height: $base-size*2;
+    }
+
+  }
+}

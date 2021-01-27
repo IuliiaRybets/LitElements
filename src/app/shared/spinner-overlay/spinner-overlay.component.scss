@@ -1,0 +1,70 @@
+@import '../../../styles/variables/colors';
+
+.spinner-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+.spinner-container {
+  z-index: 999;
+  position: absolute;
+  left: calc(50vw - 131px);
+  background: $ruv-sand;
+  display: flex;
+  align-items: center;
+  width: 261px;
+  font-size: larger;
+  font-weight: bolder;
+  border-radius: 2px;
+  -moz-box-shadow: inset 0 0 10px #3e3e42;;
+  -webkit-box-shadow: inset 0 0 10px #3e3e42;;
+  box-shadow: 0 0 10px #3e3e42;
+}
+
+.circular {
+  animation: rotate-loader 5s linear infinite;
+  height: 100px;
+  position: relative;
+  width: 100px;
+}
+
+.circular .path {
+  stroke-dasharray: 89, 200;
+  stroke-dashoffset: -35;
+  animation: dash 1.8s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke: $ruv-blue;
+}
+
+@keyframes rotate-loader {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 120, 200;
+    stroke-dashoffset: -124;
+  }
+}
+
+p {
+  max-width: 150px;
+}

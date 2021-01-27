@@ -1,0 +1,101 @@
+@import '../../../../styles/variables/colors';
+@import '../../../../styles/variables/breakpoints';
+
+.progressbar {
+  padding: 0;
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.step {
+  flex: 1;
+  list-style: none;
+  position: relative;
+  text-align: center;
+  color: $inactive-text-color;
+
+  a {
+    text-decoration: none;
+    display: block;
+  }
+
+  .dot {
+    width: 25px;
+    height: 25px;
+    border: 2px solid $inactive-text-color;
+    border-radius: 100%;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    z-index: 999;
+    line-height: 25px;
+    font-size: 1.3rem;
+    color: $ruv-blue;
+    background-color: white;
+    box-sizing: content-box;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: calc(100% - 13px);
+    height: 3px;
+    background-color: #cacaca;
+    top: 13px;
+    left: -50%;
+    z-index: -2;
+  }
+
+  &:first-child::after {
+    content: none;
+  }
+
+}
+
+.active {
+  color: $ruv-blue;
+
+  .dot {
+    border: 2px solid $ruv-blue;
+    z-index: 999;
+    background-color: unset;
+  }
+
+}
+
+.completed {
+  color: $ruv-blue;
+  cursor: pointer;
+
+  .dot {
+    border-color: $ruv-blue;
+  }
+
+  & + .step::after {
+    background-color: $ruv-blue;
+  }
+
+}
+
+.greenball {
+  &::after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 5px;
+    left: calc(50% - 10px);
+    background-color: #A7D54C;
+  }
+}
+
+.stepLabel {
+  display: none;
+  padding: 0 2px;
+  @media only screen and (min-width: $breakpoint-small) {
+    display: unset;
+  }
+}

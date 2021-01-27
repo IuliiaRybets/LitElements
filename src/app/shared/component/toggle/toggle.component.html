@@ -1,0 +1,22 @@
+<div class="toggle">
+  <input [name]="name"
+         [id]="id + 'Left'"
+         type="radio"
+         (change)="change(valueLeft)"
+         [checked]="internalValue === valueLeft"
+         [value]="valueLeft">
+  <label class="toggleLeft" [for]="id + 'Left'"
+         [innerHTML]="labelLeft"></label>
+
+  <input [name]="name"
+         [id]="id + 'Right'"
+         type="radio"
+         (change)="change(valueRight)"
+         [checked]="internalValue === valueRight"
+         [value]="valueRight">
+  <label class="toggleRight"
+         [for]="id + 'Right'"
+         [innerHTML]="labelRight">
+
+  </label>
+</div>

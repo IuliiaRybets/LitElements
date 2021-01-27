@@ -1,0 +1,100 @@
+@import "../variables/colors";
+@import "../variables/breakpoints";
+
+.ruv-button {
+  background-color: transparent;
+  color: $button-default-text-color;
+  padding: 10px 25px 6px;
+  border-radius: 10px;
+  border: 3px solid $button-default-border-color;
+  text-align: center;
+  outline: none;
+  margin-bottom: 4px;
+  width: 100%;
+  font-size: 1.25rem;
+  min-height: 60px;
+
+  &.small {
+    height: 54px;
+  }
+
+  &:hover, &:focus {
+    cursor: pointer;
+    border-color: $button-default-hover-color;
+    box-shadow: 0 0 5px lightgrey;
+  }
+
+  &.primary {
+    background-color: $button-primary-bg-color;
+    border: none;
+
+    &.disabled {
+      color: $ruv-ui-grey-3;
+      background-color: $ruv-ui-grey-1;
+    }
+
+    &:hover {
+      background-color: #01fafa;
+    }
+  }
+
+  &:active {
+    position: relative;
+    box-shadow: none;
+  }
+
+  &.disabled {
+    pointer-events: none;
+
+    &:not(.primary) {
+      border-color: $ruv-ui-grey-1;
+      color: $ruv-ui-grey-1;
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-medium) {
+    width: unset;
+  }
+}
+
+.button-row {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column-reverse;
+
+  .ruv-button {
+    margin-bottom: 5px;
+  }
+
+  @media only screen and (min-width: $breakpoint-medium) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &.only-primary {
+      justify-content: flex-end;
+    }
+
+  }
+}
+
+.quiet-btn {
+  font-weight: bold;
+  position: relative;
+
+  &:after {
+    content: '';
+    height: 0.4em;
+    width: 0.4em;
+    border-bottom: 2px solid $ruv-blue;
+    border-right: 2px solid $ruv-blue;
+    transform: rotate(-45deg);
+    position: absolute;
+    bottom: 5px;
+    margin-left: 3px;
+  }
+
+  &:hover:after {
+    border-color: $ruv-petrol;
+  }
+}

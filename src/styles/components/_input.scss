@@ -1,0 +1,77 @@
+@import "../variables/colors";
+@import "../variables/mixins";
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+select {
+  box-sizing: border-box;
+  @include border($ruv-ui-grey-3);
+  height: 50px;
+  padding: 0.7rem 1.625rem;
+  color: $ruv-blue;
+  width: 100%;
+  font-size: 1.25rem;
+  background-color: white;
+
+  &:hover {
+    border: 1px solid $ruv-blue;
+  }
+
+  &:focus {
+    border: 1px solid $ruv-mint;
+    outline: 0;
+  }
+
+}
+
+input[disabled] {
+  color: $ruv-ui-grey-3;
+  border: 1px solid $ruv-ui-grey-3;
+
+  &:hover {
+    border: 1px solid $ruv-ui-grey-3;
+  }
+}
+
+select option:disabled {
+  color: #898989;
+}
+
+select {
+  background: url("data:image/svg+xml,%3C%3Fxml version='1.0' %3F%3E%3Csvg height='50' viewBox='0 -10 60 60' width='50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.83 16.42l9.17 9.17 9.17-9.17 2.83 2.83-12 12-12-12z' fill='%23001957' /%3E%3Cpath d='M0-.75h48v48h-48z' fill='none'/%3E%3C/svg%3E") no-repeat right 0px top;
+  padding-right: 2.625rem;
+}
+
+.error {
+  input:not([disabled]),
+  select {
+    border: 1px solid $error-color;
+
+    &:focus {
+      border: 2px solid $error-color;
+    }
+  }
+
+  .radiobutton label::before,
+  .checkbox label::before {
+    border-color: $error-color !important;
+  }
+
+  .toggle label {
+    border-color: $error-color !important;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

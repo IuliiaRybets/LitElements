@@ -1,0 +1,11 @@
+@import "../variables/colors";
+
+a {
+  color: $ruv-blue;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    color: $ruv-petrol;
+    text-decoration: underline;
+  }
+}

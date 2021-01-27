@@ -1,0 +1,33 @@
+<form [formGroup]="tarifierungForm">
+  <p>{{ tarifierungForm.value | json }}</p>
+
+  <div formArrayName="credentials">
+    <div *ngFor="let unit of tarifierungForm.controls.credentials.value; let i=index" >
+      <div [formGroupName]="i">
+
+        <select formControlName="berLand" class="form" (change)="changeRegion($event, i)" id="test-{{i}}">
+          <option value="" disabled style="display: none;">Bitte auswählen</option>
+          <option *ngFor="let region of REGIONS" [value]="region">{{region}}</option>
+        </select>
+
+        <select formControlName="paket" class="form" placeholder="State" (change)="changePaket($event, i)">
+          <option value="">Bitte ein Paket auswählen</option>
+          <option *ngFor="let pak of paketen" [value]="pak.name">{{pak.name}} {{ pak.price }}</option>
+        </select>
+
+        <select formControlName="paketAnzahl" class="form" (change)="changeAnzahl($event, i)" id="test2-{{i}}">
+          <option value="" disabled style="display: none;">Bitte Anzahl auswählen</option>
+          <option *ngFor="let anz of anzahlen" [value]="anz">{{anz}}</option>
+        </select>
+
+        <label>{{ credentials.at(i).get('unitPrice')?.value | currency: 'EUR' }}</label>
+
+      </div>
+    </div>
+<!--    <label placeholder="Total sum" formControlName="unitTotalPrice">asd</label>-->
+  </div>
+  <button [innerText]="label.weiterePakete" class="ruv-button"
+          (click)="addCreds()"></button>
+  <p>{{ totalSum }}</p>
+</form>
+

@@ -1,0 +1,194 @@
+@import "./../../../styles/variables/colors";
+@import './../../../styles/variables/breakpoints';
+
+.titel {
+  text-align: center;
+  font-family: MarselisPro-Bold, sans-serif;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+
+app-label-input-container {
+  flex: 1;
+}
+
+app-zusatzleistung {
+  .fahrradwertLabel {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.15rem;
+
+    .container-label {
+      margin-top: 12px;
+    }
+  }
+}
+
+.container-zusatzleistung {
+  box-sizing: border-box;
+  border: 1px solid #cacaca;
+  padding: .7rem;
+  color: #001957;
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 10px;
+}
+.download-tarifdetails {
+  text-align: center;
+
+  a {
+    font-family: MarselisPro-Bold, serif;
+  }
+}
+
+.dark-blue-container {
+  background-color: $ruv-blue;
+  color: white;
+
+  .ruv-button:not(.primary) {
+    color: $ruv-mint;
+  }
+
+  .button-row {
+    margin: 0;
+  }
+
+}
+
+.price-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  @media (min-width: $breakpoint-large) {
+    flex-direction: row;
+  }
+
+  app-label-input-container {
+    flex: 1;
+  }
+
+  span {
+    display: block;
+  }
+
+  .tarifname {
+    padding-right: 50px;
+  }
+
+  .highlight {
+    font-family: MarselisPro-Bold, serif;
+    font-size: 1.6em;
+  }
+
+  .small {
+    font-size: 0.75rem;
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+:host ::ng-deep {
+  .swiper-pagination {
+    position: initial !important;
+  }
+
+  .swiper-pagination-bullet {
+    border: none !important;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 12%;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .swiper-button-prev:after {
+    content: url('../../../assets/images/swipe-left.svg');
+    margin-left: 0.3em;
+  }
+
+  .swiper-button-next:after {
+    content: url('../../../assets/images/swipe-right.svg');
+    margin-left: -0.3em;
+  }
+}
+
+.tarife-container {
+  margin-top: 10px;
+
+  .swiper-slide {
+    height: auto !important;
+    padding: 3px;
+    box-sizing: border-box;
+    overflow: hidden !important;
+  }
+}
+
+.header {
+  padding: 0 20px;
+}
+
+.container.row.price {
+  flex-direction: column;
+
+  &.container-tarifname {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+
+.container-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+}
+
+@media (min-width: $breakpoint-medium) {
+  .filter {
+    flex-direction: row;
+  }
+
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 150px;
+
+  .no-border {
+    border: 0;
+    outline: 0;
+    border-bottom: none;
+    box-shadow: none;
+    border-radius: 0;
+    background-image: linear-gradient(to right, $ruv-blue, $ruv-blue);
+    background-position: 5px calc(100% - 5px);
+    background-size: calc(100% - 10px) 2px;
+    background-repeat: no-repeat;
+    text-align: left;
+  }
+
+  &.currency::after {
+    content: "EUR";
+    color: $ruv-blue;
+    position: absolute;
+    right: 1rem;
+    top: 0.9rem;
+  }
+}
+

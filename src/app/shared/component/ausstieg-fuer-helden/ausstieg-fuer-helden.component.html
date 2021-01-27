@@ -1,0 +1,23 @@
+<div class="message-box" appOnAusschlussVisibleTracking grund="Ausschluss - {{ausschlussGrund}}">
+  <div class="message-container">
+    <span class="close-button" (click)="onCloseMessage()">&times;</span>
+    <h3 [innerHTML]="text.ausstiegfuerhelden.headline"></h3>
+    <p>{{text.ausstiegfuerhelden.content}}</p>
+    <div class="button-row">
+      <button type="button" (click)="onAnsprechpartner()"
+              appOnClickAnsprechpartnersucheTracking grund="Ausschluss - {{ausschlussGrund}}"
+              class="ruv-button"
+              id="ansprechpartner">
+        <span class="icon icon-poc"></span>
+        {{sharedText.buttons.ansprechpartnersuchen}}
+      </button>
+      <button type="button" (click)="onTerminvereinbaren()"
+              appOnClickTerminvereinbarungTracking grund="Ausschluss - {{ausschlussGrund}}"
+              class="primary ruv-button"
+              id="terminvereinbaren">
+        <span class="icon icon-calendar"></span>
+        {{sharedText.buttons.terminVereinbaren}}
+      </button>
+    </div>
+  </div>
+</div>

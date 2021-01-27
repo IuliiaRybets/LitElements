@@ -1,0 +1,44 @@
+.icon {
+  font-family: ruv-iconfont;
+  margin-right: 6px;
+  font-style: normal;
+  &-large {
+    font-size: 2rem;
+  }
+}
+
+.icon-magnifier::before {
+  display: inline-block;
+  content: '\E008';
+  transform: translateY(3px);
+}
+
+.icon-calendar::before {
+  content: '\E011';
+}
+
+.icon-download::before {
+  content: '\E012';
+}
+
+.icon-poc::before {
+  content: '\E014';
+}
+
+.icon-download::before {
+  content: "\E012";
+}
+
+.icon-poc::before {
+  content: "\E014";
+}
+
+.icon-pencil::before {
+  content: "\270E";
+}
+
+.icon-checkmark::before {
+  content: "\2713 ";
+
+}
+
