@@ -6,7 +6,7 @@ import { inject, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ErrorInterceptor } from '@core/interceptors/error.interceptor';
-import { HausratRoutes } from '@core/service/navigation/navigation.service';
+import { CustomRouting } from '@core/service/navigation/navigation.service';
 import { noop } from 'rxjs';
 
 @Component({template: ''})
@@ -22,7 +22,7 @@ describe('ErrorInterceptor', () => {
       declarations: [DummyComponent],
       imports: [
         HttpClientTestingModule,
-        RouterTestingModule.withRoutes([{component: DummyComponent, path: HausratRoutes.relative.fehler}])
+        RouterTestingModule.withRoutes([{component: DummyComponent, path: CustomRouting.relative.fehler}])
       ],
       providers: [
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
@@ -40,7 +40,7 @@ describe('ErrorInterceptor', () => {
       http.get(TEST_API).subscribe(
         () => noop(),
         () => {
-          expect(location.path()).toBe(HausratRoutes.absolute.fehler);
+          expect(location.path()).toBe(CustomRouting.absolute.fehler);
           done();
         });
       httpMock.expectOne(TEST_API).error(new ErrorEvent('Bad Request'));

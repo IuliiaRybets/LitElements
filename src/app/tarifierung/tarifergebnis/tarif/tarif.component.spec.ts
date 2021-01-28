@@ -1,7 +1,7 @@
 import { LOCALE_ID } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Tarif, Tarifname, ZahlweiseEnum } from '@tarifierung/tarifierung.model';
+import { Tarif, Tarifname, Region } from '@tarifierung/tarifierung.model';
 import { TarifComponent } from './tarif.component';
 
 describe('TarifComponent', () => {
@@ -49,13 +49,13 @@ describe('TarifComponent', () => {
         steuer: 5
       }
     };
-    component.zahlweise = ZahlweiseEnum.jaehrlich;
+    component.zahlweise = Region.jaehrlich;
     fixture.detectChanges();
 
     expect(fixture.debugElement.query(By.css('.preis')).nativeElement.innerHTML.trim())
       .toEqual('2,00&nbsp;EUR');
 
-    component.zahlweise = ZahlweiseEnum.vierteljaehrlich;
+    component.zahlweise = Region.vierteljaehrlich;
     fixture.detectChanges();
 
     expect(fixture.debugElement.query(By.css('.preis')).nativeElement.innerHTML.trim())

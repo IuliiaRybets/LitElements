@@ -1,13 +1,5 @@
 import { inject, InjectionToken } from '@angular/core';
 import { Model, ModelFactory } from '@core/data-model';
-import { DeepPartial } from '../global-types';
-import { sharedText } from '@shared/shared.text';
-
-export enum Tarifname {
-  Classic = 'classic',
-  Basic = 'basic',
-  Comfort = 'comfort',
-}
 
 export const Pakete = [[
     {name: '25 Prüfungen (500,00 EUR)', price: 500},
@@ -24,10 +16,9 @@ export const Pakete = [[
     {name: '500 Prüfungen (18.600,00 EUR)',  price: 18600},
 ]]
 
-export enum ZahlweiseEnum {
-  default = 'Bitte wählen',
-  inland = 'inland',
-  ausland = 'ausland',
+export enum Region {
+  ausland = 'Ausland',
+  inland = 'Inland',
 }
 
 
@@ -61,65 +52,25 @@ export const BEREICH: Array<any> = [
 ];
 
 
-const tarifname = Tarifname;
-
-export const DEFAULT_TARIFIERUNG: DeepPartial<Tarifierung> = {
-  tarifierungsparameter: {
-    selbstbeteiligung: true,
-    zahlweise: ZahlweiseEnum.ausland,
-    ueberspannungsschaeden: false,
-    glasbruch: false,
-    fahrraddiebstahl: false,
-    fahrradwert: undefined,
-    elementarschaeden: false,
-  },
-  tarife: [
-    {name: tarifname.Basic},
-    {name: tarifname.Classic},
-    {name: tarifname.Comfort},
-  ]
-};
-
-export const TARIFIERUNG = new InjectionToken<Model<Tarifierung>>('Tarifierung Model', {
+export const TARIFIERUNG = new InjectionToken<Model<Tarif>>('Tarifierung Model', {
   providedIn: 'root',
-  factory: () => (inject(ModelFactory) as ModelFactory<Tarifierung>).create('tarifierung', DEFAULT_TARIFIERUNG)
+  factory: () => (inject(ModelFactory) as ModelFactory<Tarif>).create('tarif')
 });
-
-export interface Tarifierung {
-  tarifierungsparameter: Tarifierungsparameter;
-  tarife: Tarif[];
-  selectedTarif?: Tarif;
-    zahlweise: ZahlweiseEnum;
-}
-
-export function asZahlweise(value: any) {
-  return value as keyof typeof sharedText.bereich;
-}
-
-export interface Tarifierungsparameter {
-  selbstbeteiligung: boolean;
-  elementarschaeden: boolean;
-  fahrraddiebstahl: boolean;
-  fahrradwert?: number;
-  glasbruch: boolean;
-  plz: string;
-  ueberspannungsschaeden: boolean;
-  wohnflaeche: number;
-  zahlweise: ZahlweiseEnum;
-}
-
 
 export interface Tarife {
   tarife: Tarif[];
 }
 
+
 export interface Tarif {
-  name: Tarifname;
+  berLand: Region;
   beitraege: {
-    [key in ZahlweiseEnum]: {
-      brutto: number,
-      steuer: number
-    }
+    [key in Region]: {
+      paket: string,
+      paketAnzahl: string,
+      unitPrice: number
+    } 
   };
+  totalPrice: number;
 }
 

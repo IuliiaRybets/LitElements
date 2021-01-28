@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Model, ModelFactory } from '@core/data-model';
 import { filter, map } from 'rxjs/operators';
 
-export const HausratRoutes = {
+export const CustomRouting = {
 
   get relative() {
     return {
@@ -23,31 +23,19 @@ export const HausratRoutes = {
   get absolute() {
     return {
       get tarifierung() {
-        return `/${HausratRoutes.relative.tarifierung}`;
+        return `/${CustomRouting.relative.tarifierung}`;
       },
       get tarifergebnis() {
-        return `/${HausratRoutes.relative.tarifierung}/${HausratRoutes.relative.tarifergebnis}`;
-      },
-      get kundendaten() {
-        return `/${HausratRoutes.relative.antrag}/${HausratRoutes.relative.kundendaten}`;
-      },
-      get vertragsdaten() {
-        return `/${HausratRoutes.relative.antrag}/${HausratRoutes.relative.vertragsdaten}`;
-      },
-      get zahlungsdaten() {
-        return `/${HausratRoutes.relative.antrag}/${HausratRoutes.relative.zahlungsdaten}`;
+        return `/${CustomRouting.relative.tarifierung}/${CustomRouting.relative.tarifergebnis}`;
       },
       get uebersicht() {
-        return `/${HausratRoutes.relative.antrag}/${HausratRoutes.relative.uebersicht}`;
-      },
-      get zahlungbestaetigen() {
-        return `/${HausratRoutes.relative.antrag}/${HausratRoutes.relative.zahlungbestaetigen}`;
+        return `/${CustomRouting.relative.antrag}/${CustomRouting.relative.uebersicht}`;
       },
       get bestaetigung() {
-        return `/${HausratRoutes.relative.antrag}/${HausratRoutes.relative.bestaetigung}`;
+        return `/${CustomRouting.relative.antrag}/${CustomRouting.relative.bestaetigung}`;
       },
       get fehler() {
-        return `/${HausratRoutes.relative.fehler}`;
+        return `/${CustomRouting.relative.fehler}`;
       }
     };
   }
@@ -55,15 +43,11 @@ export const HausratRoutes = {
 };
 
 export const AllowedNavigation = {
-  [HausratRoutes.absolute.tarifergebnis]: requires(HausratRoutes.absolute.tarifierung),
-  [HausratRoutes.absolute.kundendaten]: requires(HausratRoutes.absolute.tarifergebnis),
-  [HausratRoutes.absolute.vertragsdaten]: requires(HausratRoutes.absolute.kundendaten),
-  [HausratRoutes.absolute.zahlungsdaten]: requires(HausratRoutes.absolute.vertragsdaten),
-  [HausratRoutes.absolute.uebersicht]: requires(HausratRoutes.absolute.zahlungsdaten),
-  [HausratRoutes.absolute.zahlungbestaetigen]: requires(HausratRoutes.absolute.uebersicht),
-  [HausratRoutes.absolute.bestaetigung]: [
-    requires(HausratRoutes.absolute.zahlungbestaetigen),
-    requires(HausratRoutes.absolute.uebersicht)
+  [CustomRouting.absolute.tarifergebnis]: requires(CustomRouting.absolute.tarifierung),
+  [CustomRouting.absolute.tarifierung]: requires(CustomRouting.absolute.tarifergebnis),
+  [CustomRouting.absolute.tarifergebnis]: requires(CustomRouting.absolute.uebersicht),
+  [CustomRouting.absolute.bestaetigung]: [
+    requires(CustomRouting.absolute.uebersicht)
   ],
 };
 

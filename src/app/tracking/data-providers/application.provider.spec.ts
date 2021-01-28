@@ -1,4 +1,4 @@
-import { HausratRoutes } from '@core/service/navigation/navigation.service';
+import { CustomRouting } from '@core/service/navigation/navigation.service';
 import { instance, mock, when } from 'ts-mockito';
 import { ActiveRouteProvider } from './active-route.provider';
 import { ApplicationProvider } from './application.provider';
@@ -14,13 +14,10 @@ describe('ApplicationProvider', () => {
   });
 
   const parameters = [
-    {url: HausratRoutes.absolute.tarifierung, applicationPart: 'Tarifrechner'},
-    {url: HausratRoutes.absolute.tarifergebnis, applicationPart: 'Tarifrechner'},
-    {url: HausratRoutes.absolute.kundendaten, applicationPart: 'Abschlussstrecke'},
-    {url: HausratRoutes.absolute.vertragsdaten, applicationPart: 'Abschlussstrecke'},
-    {url: HausratRoutes.absolute.zahlungsdaten, applicationPart: 'Abschlussstrecke'},
-    {url: HausratRoutes.absolute.uebersicht, applicationPart: 'Abschlussstrecke'},
-    {url: HausratRoutes.absolute.bestaetigung, applicationPart: 'Abschlussstrecke'}
+    {url: CustomRouting.absolute.tarifierung, applicationPart: 'Tarifrechner'},
+    {url: CustomRouting.absolute.tarifergebnis, applicationPart: 'Tarifrechner'},
+    {url: CustomRouting.absolute.uebersicht, applicationPart: 'Abschlussstrecke'},
+    {url: CustomRouting.absolute.bestaetigung, applicationPart: 'Abschlussstrecke'}
   ];
 
   parameters.forEach((params) => {

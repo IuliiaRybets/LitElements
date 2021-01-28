@@ -2,21 +2,33 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Model } from '@core/data-model';
 import { longRunningRequest, spinnerTextKey } from '@core/interceptors/loading.interceptor';
-import { Tarife, Tarifierung, TARIFIERUNG, Tarifierungsparameter } from '@tarifierung/tarifierung.model';
+import { Tarife, TARIFIERUNG } from '@tarifierung/tarifierung.model';
 import { debounceTime, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { sharedText } from '@shared/shared.text';
+import { Tarif } from './tarifierung.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TarifeService {
 
+  tarif: Tarif[] = [];
+
   constructor(private readonly http: HttpClient,
-              @Inject(TARIFIERUNG) private readonly model: Model<Tarifierung>) {
+              @Inject(TARIFIERUNG) private readonly model: Model<Tarif>) {
   }
 
-  berechneTarife(tarifierungsparameterPartial: Partial<Tarifierungsparameter>) {
+  getItems() {
+    return this.tarif;
+  }
+
+  addToCart(product:Tarif) {
+    this.model.patch(product)
+    this.tarif.push(product);
+  }
+  
+  /*berechneTarife(tarifierungsparameterPartial: Partial<Tarifierungsparameter>) {
     const tarifierungsparameter = {...this.model.get().tarifierungsparameter, ...tarifierungsparameterPartial};
 
     return this.http.post<Tarife>(
@@ -41,6 +53,6 @@ export class TarifeService {
     const now = new Date();
     now.setDate(now.getDate() + 1);
     return now.toISOString().slice(0, -14);
-  }
+  }*/
 
 }

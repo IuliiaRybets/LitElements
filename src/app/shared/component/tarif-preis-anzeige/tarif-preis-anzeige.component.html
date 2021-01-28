@@ -1,17 +1,5 @@
 <div class="overview" *ngIf="isVisible() | async">
   <div>
-    <span>Hausratversicherung</span>
     <span class="highlight">{{(tarifdatenModel$ | async)?.selectedTarif?.name}}</span>
   </div>
- <!-- <div>
-    <span class="highlight" [ngSwitch]="(tarifdatenModel$ | async)?.tarifierungsparameter?.zahlweise">
-      <ng-container
-        *ngSwitchCase="zahlweiseEnum.jaehrlich">{{(tarifdatenModel$ | async)?.selectedTarif?.beitraege?.jaehrlich?.brutto | currency: 'EUR' : 'code'}}</ng-container>
-      <ng-container
-        *ngSwitchCase="zahlweiseEnum.halbjaehrlich">{{(tarifdatenModel$ | async)?.selectedTarif?.beitraege?.halbjaehrlich?.brutto | currency: 'EUR' : 'code'}}</ng-container>
-      <ng-container
-        *ngSwitchCase="zahlweiseEnum.vierteljaehrlich">{{(tarifdatenModel$ | async)?.selectedTarif?.beitraege?.vierteljaehrlich?.brutto | currency: 'EUR' : 'code'}}</ng-container>
-    </span>
-    <span>{{sharedText.zahlweise[asZahlweise((tarifdatenModel$ | async)?.tarifierungsparameter?.zahlweise)]}}</span>
-  </div>-->
 </div>

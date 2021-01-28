@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Model } from '@core/data-model';
-import { AllowedNavigation, HausratRoutes, NavigationData } from '@core/service/navigation/navigation.service';
+import { AllowedNavigation, CustomRouting, NavigationData } from '@core/service/navigation/navigation.service';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class CanLoadNextStepGuard implements CanActivate {
    // const alreadyVisisted = this.model.get().visited || [];
 
     if (!prerequisites) {
-      return this.router.createUrlTree([HausratRoutes.absolute.tarifierung]);
+      return this.router.createUrlTree([CustomRouting.absolute.tarifierung]);
     }
 
     if (!Array.isArray(prerequisites)) {
@@ -41,6 +41,6 @@ export class CanLoadNextStepGuard implements CanActivate {
      // }
     }
 
-    return this.router.createUrlTree([HausratRoutes.absolute.tarifierung]);
+    return this.router.createUrlTree([CustomRouting.absolute.tarifierung]);
   }
 }

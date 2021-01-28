@@ -47,11 +47,11 @@ app-zusatzleistung {
 }
 
 .dark-blue-container {
-  background-color: $ruv-blue;
+  background-color: $el-blue;
   color: white;
 
   .ruv-button:not(.primary) {
-    color: $ruv-mint;
+    color: $el-mint;
   }
 
   .button-row {
@@ -176,7 +176,7 @@ app-zusatzleistung {
     border-bottom: none;
     box-shadow: none;
     border-radius: 0;
-    background-image: linear-gradient(to right, $ruv-blue, $ruv-blue);
+    background-image: linear-gradient(to right, $el-blue, $el-blue);
     background-position: 5px calc(100% - 5px);
     background-size: calc(100% - 10px) 2px;
     background-repeat: no-repeat;
@@ -185,7 +185,7 @@ app-zusatzleistung {
 
   &.currency::after {
     content: "EUR";
-    color: $ruv-blue;
+    color: $el-blue;
     position: absolute;
     right: 1rem;
     top: 0.9rem;

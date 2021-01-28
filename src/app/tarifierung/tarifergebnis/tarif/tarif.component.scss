@@ -9,12 +9,12 @@ div.tarif {
   background-color: white;
 
   &.active {
-    background-color: $ruv-blue;
-    border: 5px solid $ruv-blue;
+    background-color: $el-blue;
+    border: 5px solid $el-blue;
 
     .head {
       color: white;
-      background-color: $ruv-blue;
+      background-color: $el-blue;
     }
 
     .tarif-details {
@@ -48,11 +48,11 @@ div.tarif {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: $ruv-blue;
+      color: $el-blue;
       border-radius: 5px;
       height: 20px;
       font-size: .8em;
-      background-color: $ruv-mint;
+      background-color: $el-mint;
       position: absolute;
       top: 0;
       padding: 0 10px;

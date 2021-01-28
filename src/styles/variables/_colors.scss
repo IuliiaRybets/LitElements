@@ -1,29 +1,29 @@
 // see https://ruv-markenportal.de/fundamentals/fundamentals/view/id/41
-$ruv-blue: #001957;
-$ruv-orange-light: #FFA500;
-$ruv-sand: #FFF2DC;
-$ruv-red-1: #E60000;
-$ruv-mint: #00e6e6;
-$ruv-ui-grey-1: #F5F5F5;
-$ruv-ui-grey-2: #ECECEC;
-$ruv-ui-grey-3: #CACACA;
-$ruv-ui-grey-4: #7D7D7D;
-$ruv-petrol: #1DA3B6;
-$ruv-ui-green-2: #A7D54C;
-$ruv-green-6: #3F7714;
+$el-blue: #001957;
+$el-orange-light: #FFA500;
+$el-sand: #FFF2DC;
+$el-red-1: #E60000;
+$el-mint: #00e6e6;
+$el-ui-grey-1: #F5F5F5;
+$el-ui-grey-2: #ECECEC;
+$el-ui-grey-3: #CACACA;
+$el-ui-grey-4: #7D7D7D;
+$el-petrol: #1DA3B6;
+$el-ui-green-2: #A7D54C;
+$el-green-6: #3F7714;
 
-$container-bg-color: $ruv-ui-grey-1;
+$container-bg-color: $el-ui-grey-1;
 
-$button-default-text-color: $ruv-blue;
+$button-default-text-color: $el-blue;
 $button-default-bg-color: white;
-$button-default-border-color: $ruv-mint;
-$button-default-hover-color: $ruv-petrol;
+$button-default-border-color: $el-mint;
+$button-default-hover-color: $el-petrol;
 
-$button-primary-bg-color: $ruv-mint;
+$button-primary-bg-color: $el-mint;
 
-$error-color: $ruv-red-1;
+$error-color: $el-red-1;
 $error-text-color: white;
 
 $headline-text-color: white;
-$inactive-text-color: $ruv-ui-grey-3;
-$default-font-color: $ruv-blue;
+$inactive-text-color: $el-ui-grey-3;
+$default-font-color: $el-blue;

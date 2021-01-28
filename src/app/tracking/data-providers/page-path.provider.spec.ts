@@ -1,4 +1,4 @@
-import { HausratRoutes } from '@core/service/navigation/navigation.service';
+import { CustomRouting } from '@core/service/navigation/navigation.service';
 import { instance, mock, when } from 'ts-mockito';
 import { ActiveRouteProvider } from './active-route.provider';
 import { PagePathProvider } from './page-path.provider';
@@ -15,32 +15,20 @@ describe('PagePathProvider', () => {
 
   const parameters = [
     {
-      url: HausratRoutes.absolute.tarifierung,
-      pagePath: '/tarifrechner/hausratversicherung/step01-einstieg'
+      url: CustomRouting.absolute.tarifierung,
+      pagePath: '/tarifrechner/testversicherung/step01-einstieg'
     },
     {
-      url: HausratRoutes.absolute.tarifergebnis,
-      pagePath: '/tarifrechner/hausratversicherung/step02-preisanzeige'
+      url: CustomRouting.absolute.tarifergebnis,
+      pagePath: '/tarifrechner/testversicherung/step02-preisanzeige'
     },
     {
-      url: HausratRoutes.absolute.kundendaten,
-      pagePath: '/abschlussstrecke/hausratversicherung/step01-persoenliche_angaben'
+      url: CustomRouting.absolute.uebersicht,
+      pagePath: '/abschlussstrecke/testversicherung/step04-uebersicht'
     },
     {
-      url: HausratRoutes.absolute.vertragsdaten,
-      pagePath: '/abschlussstrecke/hausratversicherung/step02-daten_eingeben'
-    },
-    {
-      url: HausratRoutes.absolute.zahlungsdaten,
-      pagePath: '/abschlussstrecke/hausratversicherung/step03-zahlungsart'
-    },
-    {
-      url: HausratRoutes.absolute.uebersicht,
-      pagePath: '/abschlussstrecke/hausratversicherung/step04-uebersicht'
-    },
-    {
-      url: HausratRoutes.absolute.bestaetigung,
-      pagePath: '/abschlussstrecke/hausratversicherung/step05-hinweise'
+      url: CustomRouting.absolute.bestaetigung,
+      pagePath: '/abschlussstrecke/testversicherung/step05-hinweise'
     }
   ];
 

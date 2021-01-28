@@ -25,7 +25,7 @@
       height: 24px;
       width: 24px;
       border-radius: 50%;
-      border: 1px solid $ruv-ui-grey-3;
+      border: 1px solid $el-ui-grey-3;
       position: absolute;
       top: calc(50% - 12px);
       left: 10px;
@@ -35,7 +35,7 @@
 
     &:hover {
       &::before {
-        border-color: $ruv-blue;
+        border-color: $el-blue;
       }
     }
   }
@@ -44,7 +44,7 @@
     content: "";
     position: absolute;
     display: block;
-    background: $ruv-blue;
+    background: $el-blue;
     top: calc(50% - 6px);
     left: 16px;
     width: 14px;

@@ -14,14 +14,14 @@
     display: block;
     width: 100%;
     text-align: center;
-    border: 1px solid $ruv-ui-grey-3;
+    border: 1px solid $el-ui-grey-3;
     padding: 10px;
     line-height: 30px;
     cursor: pointer;
     position: relative;
 
     &:hover {
-      border-color: $ruv-blue;
+      border-color: $el-blue;
       z-index: 1;
     }
 
@@ -38,7 +38,7 @@
   }
 
   input:checked + label {
-    background-color: $ruv-blue;
+    background-color: $el-blue;
     color: white;
   }
 

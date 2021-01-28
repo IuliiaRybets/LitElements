@@ -1,7 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HausratRoutes } from '@core/service/navigation/navigation.service';
+import { CustomRouting } from '@core/service/navigation/navigation.service';
 import { Observable, throwError } from 'rxjs';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import { catchError, retry, switchMap } from 'rxjs/operators';
@@ -27,7 +27,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         retry(ErrorInterceptor.RETRY_TIMES),
         catchError(err => {
           this.log.error(`Error during http call. requestUri: ${req.url}`);
-          return fromPromise(this.router.navigate([HausratRoutes.absolute.fehler]))
+          return fromPromise(this.router.navigate([CustomRouting.absolute.fehler]))
             .pipe(switchMap(_ => throwError(err)));
         }));
 

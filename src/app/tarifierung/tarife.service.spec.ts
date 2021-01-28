@@ -9,7 +9,7 @@ describe('TarifeService', () => {
   let httpTestingController: HttpTestingController;
   let cut: TarifeService;
 
-  let model: Model<Tarifierung>;
+  let model: Model<Tarif>;
 
   const expectedTarife: Tarife = {
     tarife: [
@@ -50,7 +50,7 @@ describe('TarifeService', () => {
 
 
   beforeEach(() => {
-    model = new Model<Tarifierung>({
+    model = new Model<Tarif>({
       tarifierungsparameter
     });
 

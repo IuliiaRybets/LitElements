@@ -1,4 +1,4 @@
-<form [formGroup]="tarifierungForm" (keydown.enter)="onEnter()" autocomplete="off">
+<form [formGroup]="tarifierungForm" (keydown.enter)="onEnter()" >
   <p>{{ tarifierungForm.value | json }}</p>
 
   <div class="container-product">
@@ -8,59 +8,10 @@
       <p [innerHTML]="label.product.productDescription"></p>
     </div>
   </div>
-  <div class="container-input" [hidden]="hideFinal" style="min-height: 30vh">
-        <h3>Bestätigung Ihrer Bestellung</h3>
-        <div style="padding: 1em">
-          In folgendem Dokument haben wir Ihren Auftrag noch einmal zusammengefasst.
-          <br>-> <a style="padding-top: 3em" href="assets/bestell_bestaetigung.pdf"> Bestellübersicht</a>
-        </div>
-      </div>
-     <div class="container-input" [hidden]="hideOverview">
-          <h3>Auswahl Übersicht</h3>
-          <div>
-            <div class="input-container">
-              <div><h4>Bereich</h4></div>
-              <div><h4>Paket</h4></div>
-              <div><h4>Anzahl</h4></div>
-              <div><h4>Gebühren in EUR</h4></div>
-            </div>
-           <!-- <div class="input-container">
-              <div>{{this.tarifierungForm.get("berLand").value}}</div>
-              <div>{{this.tarifierungForm.get("paket").value}}</div>
-              <div>{{this.tarifierungForm.get("paketAnzahl").value}}</div>
-              <div>{{this.gebuer | currency: "EUR":'code':'3.2-2':'de'}}</div>
-            </div>-->
-            <div class="input-container" style="margin-top: 1em; padding-top: 1em; border-top: #3e3e42 solid 2px">
-              <div>
-              </div>
-              <div style="align-self: flex-end">
-                <div class="input-container" >
-                  <div style="padding-right: 2em">zzgl. Umsatzsteuer (16%):  </div>
-                  <div>{{this.gebuer | currency: "EUR":'code':'1.2-2':'de'}}</div>
-                </div>
-                <div class="input-container">
-                  <div><h3>Gesamtpreis: </h3></div>
-                  <div><h3>  {{this.gebuer | currency: "EUR":'code':'1.2-2':'de'}}</h3></div>
-                </div>
-              </div>
-            </div>
-            <div [formGroup]="agbFrom">
-              <app-checkbox formControlName="agb" [label]="'Ja, ich stimme den Allgemeinen Geschäftsbedingungen zu.'" required (click)="agbCeck = true"></app-checkbox>
-              <p [hidden]="agbCeck" style="color: red">Bitte akzeptieren Sie die AGB.</p>
-            </div>
-          </div>
-          <div class="input-container">
-            <button [innerText]="'Zurück'" class="ruv-button"
-                    (click)="backToSelection()"></button>
-            <button [innerText]="'Kaufen'" class="primary ruv-button" type="submit"
-                    (click)="confirmBuy()"></button>
-          </div>
-        </div>   
 
   <div formArrayName="credentials">
-   
 
-    <div class="container-input" [hidden]="hideSelection">
+    <div class="container-input">
       <h3 [innerHTML]="label.inputHeader"></h3>
       <div *ngFor="let unit of credentials.controls; let i=index; let last=last; let first=first;">
         <div [formGroupName]="i">
@@ -73,7 +24,7 @@
                                        class="infotext-top">
               <select class="form" formControlName="berLand" id="zalungsperiode_{{i}}" (change)="changeBereich($event)">
                 <option value="" disabled style="display: none;">Bitte auswählen</option>
-                <option *ngFor="let region of REGIONS" [value]="region">{{region}}</option>
+                <option *ngFor="let region of regions | keyvalue" [value]="region.value">{{region.value}}</option>
               </select>
             </app-label-input-container>
             <app-label-input-container *ngIf="tarifierungForm" [errorText]="label.paket.errors.default"
@@ -113,7 +64,7 @@
             <hr *ngIf="!last"> 
           </div>
         </div>
-            <div class="input-container" style="margin-top: 1em; padding-top: 1em; border-top: #3e3e42 solid 2px">
+            <div class="input-container" style="border-top: #3e3e42 solid 2px">
               <app-label-input-container>
               
               <div style="align-self: flex-end">
@@ -131,13 +82,10 @@
 
         
          <div class="input-container">
-          <button [innerText]="label.weiterePakete" class="ruv-button"
-          (click)="addCreds()"></button>
-        
-          <button  *ngIf="credentials.controls.last().status" [innerText]="label.berechnenButton" class="primary ruv-button" type="submit"
-          (click)="confirmSelection()" ></button>
-            <!--<button *ngIf="last" [innerText]="label.berechnenButton" class="primary ruv-button" type="submit"></button>
-       --> 
+          <!--<button [innerText]="label.weiterePakete" class="ruv-button"
+          (click)="addCreds()"></button>-->
+          <button [innerText]="label.berechnenButton" class="primary ruv-button" type="submit"
+          (click)="onBerechnenClick()"></button>
         </div>
     </div>
   </div>

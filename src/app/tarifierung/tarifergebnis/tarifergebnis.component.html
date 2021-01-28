@@ -1,23 +1,18 @@
 <h1 class="titel">{{text.headline}}</h1>
 <h1 class="titel">{{berLand}}</h1>
-<h1 class="titel">hsllli</h1>
-
-<form [formGroup]="tarifergebnisForm" autocomplete="off">
+<form [formGroup]="agbFrom" >
    <app-zusatzleistung>
         <h3>Auswahl Übersicht</h3>
         <div class="container-zusatzleistung">
-          <div class="container-mitte">
-            <div><h4>Bereich</h4></div>
-            <div><h4>Paket</h4></div>
-            <div><h4>Anzahl</h4></div>
-            <div><h4>Gebühren in EUR</h4></div>
+          <div *ngFor="let item of tarife | keyvalue" class="container-mitte">
+             <div *ngFor="let i of item.value | keyvalue" class="container-mitte">
+                <div><h4>Bereich {{ i.value.berLand | json }}</h4></div>
+                <div><h4>Paket {{ i.value.paket | json}}</h4></div>
+                <div><h4>Anzahl {{ i.value.paketAnzahl | json }}</h4></div>
+                <div><h4>Gebühren {{  i.value.unitPrice | currency: 'EUR' : 'code' }}</h4></div>
+            </div>
           </div>
-  
-          <div class="input-container" style="margin-top: 1em; padding-top: 1em; border-top: #3e3e42 solid 2px">
-            <div>
-            </div>
-          </div>
-            <div [formGroup]="agbFrom">
+            <div >
               <app-checkbox formControlName="agb" [label]="'Ja, ich stimme den Allgemeinen Geschäftsbedingungen zu.'" required (click)="agbCeck = true"></app-checkbox>
               <p [hidden]="agbCeck" style="color: red">Bitte akzeptieren Sie die AGB.</p>
             </div>
@@ -32,8 +27,8 @@
             </div>
     <div style="align-self: flex-end">
          <div class="container-price">
-                  <app-benutzereingaben [totalSum]="totalSum"><h3>Gesamtpreis:</h3></app-benutzereingaben>
-                </div>
+                  <h3>Gesamtpreis: </h3>
+          </div>
       </div>
       </div>
         <div class="button-row">
@@ -47,19 +42,5 @@
       </app-zusatzleistung>
 </form>
 
-<!--  <div *ngIf="(selectedTarif$ | async)?.name" class="dark-blue-container row large"
-     [class.disabled]="(selectedTarif$ | async) === undefined">
-
-
-
-  <div class="button-row">
-    <button type="button" [routerLink]="[routes.absolute.tarifierung]" appOnBackTracking
-            class="ruv-button">{{sharedText.buttons.zurueck}}</button>
-    <button id="weiter" (click)="onAbschliessen()" class="primary ruv-button"
-            [class.disabled]="(selectedTarif$ | async) === undefined">{{text.buttons.weiter}}
-    </button>
-  </div>
-
-</div>-->
 
 

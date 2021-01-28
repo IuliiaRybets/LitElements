@@ -12,7 +12,6 @@ import { SpinnerOverlayModule } from '@shared/spinner-overlay/spinner-overlay.mo
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TrackingModule } from './tracking/tracking.module';
 import { GlobalErrorHandler } from '@core/global.errorhandler';
 
 registerLocaleData(localeDe);
@@ -27,14 +26,7 @@ registerLocaleData(localeDe);
     CommonModule,
     SpinnerOverlayModule,
     SharedModule,
-    HttpClientModule,
-    TrackingModule.forRoot({
-      produktname: 'Hausratversicherung',
-      produktId: '1080100',
-      produktKategorie: 'Bauen + Wohnen',
-      vertragslaufzeit: '1 Jahr',
-      portalId: 'e01e3cebb884dd2557b35bd40da770e5'
-    })
+    HttpClientModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'de'},

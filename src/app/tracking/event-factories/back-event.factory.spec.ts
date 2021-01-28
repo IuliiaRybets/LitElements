@@ -8,7 +8,7 @@ describe('BackEventFactory', () => {
 
   let cut: BackEventFactory;
   const globalConfiguration: GlobalConfiguration = {
-    produktname: 'Hausrat',
+    produktname: 'Test',
     produktId: '10100',
     produktKategorie: 'Bauen + Wohnen',
     vertragslaufzeit: '1 Jahr',

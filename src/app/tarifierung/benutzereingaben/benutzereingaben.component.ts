@@ -19,43 +19,39 @@ import {
 import {Router} from '@angular/router';
 import {DocumentRef} from '@core/browser-globals';
 import {Model} from '@core/data-model';
-import {HausratRoutes} from '@core/service/navigation/navigation.service';
+import {CustomRouting} from '@core/service/navigation/navigation.service';
 import {sharedText} from '@shared/shared.text';
-import {Tarifierung, TARIFIERUNG, Tarifierungsparameter} from '@tarifierung/tarifierung.model';
+import { TARIFIERUNG, Region, Tarif} from '@tarifierung/tarifierung.model';
 import {Subject} from 'rxjs';
 import {filter, startWith, switchMap, take, tap} from 'rxjs/operators';
 import {benutzereingabenText} from './benutzereingaben.text';
 import {tarifergebnisText} from '@tarifierung/tarifergebnis/tarifergebnis.text';
 import {Pakete, BEREICH} from '../tarifierung.model';
+import { TarifeService } from '../tarife.service';
 
 @Component({
   selector: 'app-benutzereingaben',
   templateUrl: './benutzereingaben.component.html',
   styleUrls: ['./benutzereingaben.component.scss'],
 })
+
 export class BenutzereingabenComponent implements OnInit {
-  agbFrom: FormGroup;
-  agbCeck = true;
-  hideSelection = false;
-  hideOverview = true;
-  hideFinal = true;
+ 
+
   constructor(private readonly fb: FormBuilder,
               private readonly router: Router,
-              @Inject(TARIFIERUNG) public readonly  model: Model<Tarifierung>,
-              private readonly document: DocumentRef,
-              private resolver: ComponentFactoryResolver
-  ) { 
+              private readonly tarifeService: TarifeService,
+              @Inject(TARIFIERUNG) public readonly  model: Model<Tarif>,
+              private readonly document: DocumentRef) { 
   }
 
-
-  
   label = benutzereingabenText;
   text = tarifergebnisText;
   sharedText = sharedText;
-  tarifierungsparameter: Tarifierungsparameter;
 
   onBerechnenTrigger$ = new Subject();
   bereich = BEREICH;
+  regions = Region;
   showAusstieg = false;
 
   paketen: Array<any>;
@@ -71,8 +67,6 @@ export class BenutzereingabenComponent implements OnInit {
   totalSum = 0;
   myValChanges$: any;
 
-  REGIONS: any = ['Inland', 'Ausland'];
-
   ngOnInit() {
     this.tarifierungForm = this.fb.group({
       berLand: [''],
@@ -84,13 +78,6 @@ export class BenutzereingabenComponent implements OnInit {
         this.getCreds()
       ])
     });
-    this.agbFrom = new FormGroup({
-      agb: new FormControl(false, [Validators.required])
-    });
-    // this.f.valueChanges.subscribe(() => this.showAusstieg = this.f.errors?.default);
-    // this.credentials.valueChanges.subscribe(res => {
-    //   this.showAusstieg = this.credentials.errors?.default;
-    // });
 
     const vvv = this.tarifierungForm.get(['credentials', 'paket']);
     console.log(vvv);
@@ -244,14 +231,14 @@ export class BenutzereingabenComponent implements OnInit {
     control.at(+i).patchValue({credentials: newCredentials});
   }
 
-/*  onBerechnenClick() {
+  onBerechnenClick() {
+  
     this.onBerechnenTrigger$.next();
-    console.warn(this.tarifierungForm.status);
-    console.warn(this.credentials.status);
-  }*/
+  }
 
   onEnter() {
-    this.showAusstieg = true;
+    //this.showAusstieg = true;
+
     if (this.credentials.invalid) {
       return;
     }
@@ -273,31 +260,15 @@ export class BenutzereingabenComponent implements OnInit {
       this.totalSum += totalUnitPrice;
     }*/
   }
+  object: Tarif;
 
   confirmSelection(){
-    this.hideSelection = true;
-    this.hideOverview = false;
-    this.hideFinal = true;
+    this.object = this.model.patch(this.credentials.value); 
+    this.tarifeService.addToCart(this.object);
+    this.router.navigate([CustomRouting.absolute.tarifergebnis])
   }
 
-  confirmBuy(){
-    if (!this.agbFrom.get('agb')?.value) {
-      this.agbCeck = false;
-    }
-    else {
-      this.agbCeck = true;
-      this.hideSelection = true;
-      this.hideOverview = true;
-      this.hideFinal = false;
-    }
-  }
-
-  backToSelection() {
-    this.hideSelection = false;
-    this.hideOverview = true;
-    this.hideFinal = true;
-  }
-
+ 
   removeUnit(i: number) {
     const control = this.tarifierungForm.controls.units as FormArray;
     control.removeAt(i);

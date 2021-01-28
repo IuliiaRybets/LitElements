@@ -19,12 +19,12 @@
     font-size: 1.1rem;
 
     &.required {
-      background-color: $ruv-sand;
+      background-color: $el-sand;
     }
 
     &:hover {
       &:before {
-        border-color: $ruv-blue;
+        border-color: $el-blue;
       }
     }
   }
@@ -35,7 +35,7 @@
     height: 24px;
     width: 24px;
     border-radius: 8px;
-    border: 1px solid $ruv-ui-grey-3;
+    border: 1px solid $el-ui-grey-3;
     top: calc(50% - 12px);
     left: 10px;
     background-color: #fff;
@@ -44,8 +44,8 @@
 
   input[type="checkbox"]:checked + label:after {
     content: "";
-    border-bottom: 3px solid $ruv-blue;
-    border-right: 3px solid $ruv-blue;
+    border-bottom: 3px solid $el-blue;
+    border-right: 3px solid $el-blue;
     width: 6px;
     height: 13px;
     position: absolute;

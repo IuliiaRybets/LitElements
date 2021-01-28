@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { HausratRoutes } from '@core/service/navigation/navigation.service';
+import { CustomRouting } from '@core/service/navigation/navigation.service';
 import { sharedText } from '@shared/shared.text';
 import { Observable } from 'rxjs';
 import { filter, map, shareReplay, startWith } from 'rxjs/operators';
@@ -15,20 +15,8 @@ export class ProgressBarComponent {
 
   private static readonly PROGRESS_CONFIG = [
     {
-      step: sharedText.progressBar.step1,
-      matchingRoutes: [HausratRoutes.absolute.kundendaten]
-    },
-    {
-      step: sharedText.progressBar.step2,
-      matchingRoutes: [HausratRoutes.absolute.vertragsdaten]
-    },
-    {
-      step: sharedText.progressBar.step3,
-      matchingRoutes: [HausratRoutes.absolute.zahlungsdaten]
-    },
-    {
       step: sharedText.progressBar.step4,
-      matchingRoutes: [HausratRoutes.absolute.uebersicht]
+      matchingRoutes: [CustomRouting.absolute.uebersicht]
     },
   ];
 

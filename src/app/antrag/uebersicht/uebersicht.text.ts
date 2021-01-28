@@ -1,33 +1,4 @@
 export const uebsersichtText = {
-  basis: {
-    headline: 'Basisdaten',
-    labels: {
-      wohnflaeche: 'Wohnfläche',
-      plz: 'PLZ'
-    }
-  },
-  gewuenschteVersicherung: {
-    headline: 'Gewünschte Versicherung',
-    labels: {
-      versicherungsbeginn: 'Versicherungsbeginn',
-      tarif: 'Tarif',
-      zahlungsperiode: 'Zahlungsweise',
-      beitrag: 'Ihr Beitrag',
-      gesamtbetrag: 'Gesamtbeitrag pro Jahr',
-      selbstbeteiligung: 'Selbstbeteiligung',
-      zusatzbaustein: 'Zusatzbaustein'
-    },
-  },
-  kundendaten: {
-    headline: 'Kundendaten',
-    labels: {
-      name: 'Name',
-      adresse: 'Adresse',
-      geburtsdatum: 'Geburtsdatum',
-      email: 'E-Mail'
-    },
-    text: 'Die Adresse des zu versichernden Objektes muss mit Ihrer persönlichen Adresse übereinstimmen!'
-  },
   zahlungsdaten: {
     headline: 'Zahlungsdaten',
     methode: 'Zahlungsmethode',
@@ -39,19 +10,11 @@ export const uebsersichtText = {
       master: 'Kreditkarte (Mastercard)',
     }
   },
-  ansprechpartner: {
-    headline: 'Ansprechpartner',
-    text1: `Wenn Sie Fragen zum Antrag oder zu den Vertragsunterlagen haben oder zu einem späteren Zeitpunkt Änderungen
-      an diesem Vertrag vornehmen möchten, stehen wir - `,
-    text2: ' - Ihnen als persönlicher Ansprechpartner vor Ort zur Verfügung.',
-    verzicht: `Ich verzichte auf einen Ansprechpartner vor Ort und zuständigen Vermittler,
-      der mir für meine Fragen und Änderungen zum Vertrag zur Verfügung steht.`
-  },
   vertragsdaten: {
     headline: 'Vertragsdaten',
     labels: {
       versicherungsbeginn: 'Versicherungsbeginn',
-      gebaeudeart: 'Hausrat befindet sich in',
+      gebaeudeart: 'test befindet sich in',
       vorversicherung: 'Vorversicherung',
       gesellschaft: 'Vorversicherungsgesellschaft',
       vertragsende: 'Ende der Vorversicherung',
@@ -69,35 +32,18 @@ export const uebsersichtText = {
     pdfs: {
       ipid: {
         label: 'Informationsblatt zu Versicherungsprodukten',
-        basic: 'https://www.ruv.de/dam/jcr/privatkunden/downloads/infoblatt-zu-versicherungsprodukten/hr.pdf',
-        classic: 'https://www.ruv.de/dam/jcr/privatkunden/downloads/infoblatt-zu-versicherungsprodukten/hausrat-classic-comfort.pdf',
-        comfort: 'https://www.ruv.de/dam/jcr/privatkunden/downloads/infoblatt-zu-versicherungsprodukten/hausrat-classic-comfort.pdf'
       },
       avb: {
         label: `Allgemeine Versicherungsbedingungen (AVB)`,
-        basic:
-          'https://www.ruv.de/dam/jcr/privatkunden/downloads/versicherungsbedingungen/versicherungsbedingungen-hausrat-basic.pdf',
-        classic:
-          'https://www.ruv.de/dam/jcr/privatkunden/downloads/versicherungsbedingungen/versicherungsbedingungen-hausrat-classic.pdf',
-        comfort:
-          'https://www.ruv.de/dam/jcr/privatkunden/downloads/versicherungsbedingungen/versicherungsbedingungen-hausrat-comfort.pdf'
       },
       vvg: {
         label: 'Informationen nach §1 VVG-Informationspflichtenverordnung (§1 VVG-InfoV)',
-        basic:
-          'https://www.ruv.de/dam/jcr:0c243875-8683-4f63-b412-3230e4c3f5ea/Information_VVG-Info_basic.pdf',
-        classic:
-          'https://www.ruv.de/dam/jcr:1977b104-8716-4b76-b88c-0ff595fffea6/Information_VVG-Info_classic-comfort.pdf',
-        comfort:
-          'https://www.ruv.de/dam/jcr:1977b104-8716-4b76-b88c-0ff595fffea6/Information_VVG-Info_classic-comfort.pdf'
       },
       merkblatt: {
         label: 'Merkblatt zur Datenverarbeitung',
-        url: `https://www.ruv.de/dam/jcr/datenschutz/downloads/datenschutzmerkblatt.pdf`
       },
       widerruf: {
         label: 'Widerrufsbelehrung',
-        url: 'https://www.ruv.de/dam/jcr/privatkunden/downloads/widerrufsbelehrung.pdf'
       }
     }
   },
@@ -135,13 +81,6 @@ export const uebsersichtText = {
     wiederrufen:
       `Ihre Einwilligung können Sie jederzeit anpassen oder widerrufen und sie hat keinen Einfluss auf
       das Vertragsverhältnis.`,
-    kontaktdaten: `Unsere Kontaktdaten:<br/>
-                   R+V Allgemeine Versicherung AG<br/>
-                   Raiffeisenplatz 1, 65189 Wiesbaden<br/>
-                   0611 533-1112, ruv@ruv.de`,
-    unternehmen: `* Zur R+V Versicherungsgruppe gehören: R+V Allgemeine Versicherung AG, R+V Lebensversicherung AG,
-    R+V Krankenversicherung AG, R+V Luxembourg Lebensversicherung S.A., KRAVAG-ALLGEMEINE Versicherungs-AG,
-    KRAVAG-LOGISTIC Versicherungs-AG, KRAVAG-SACH Versicherung des Deutschen Kraftverkehrs VaG`
   }
   ,
   aendern: 'Daten ändern',

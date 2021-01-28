@@ -3,7 +3,7 @@ import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testi
 import { TarifPreisAnzeigeComponent } from './tarif-preis-anzeige.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
-import { HausratRoutes } from '@core/service/navigation/navigation.service';
+
 
 describe('TarifPreisAnzeigeComponent', () => {
   let component: TarifPreisAnzeigeComponent;
@@ -31,24 +31,5 @@ describe('TarifPreisAnzeigeComponent', () => {
     fixture.detectChanges();
   });
 
-  describe('#isVisible', () => {
-
-    it('should be visible on page kundendaten', fakeAsync(() => {
-      navigationTrigger.next(new NavigationEnd(0, HausratRoutes.absolute.kundendaten, HausratRoutes.absolute.kundendaten));
-
-      component.isVisible().subscribe((bool) => {
-        expect(bool).toBe(true);
-      });
-    }));
-
-    it('should not be visible on page tarifierung', fakeAsync(() => {
-      navigationTrigger.next(new NavigationEnd(0, HausratRoutes.absolute.tarifierung, HausratRoutes.absolute.tarifierung));
-      fixture.detectChanges();
-
-      component.isVisible().subscribe((bool) => {
-        expect(bool).toBe(false);
-      });
-    }));
-  });
 
 });

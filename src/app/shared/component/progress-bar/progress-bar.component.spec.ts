@@ -2,7 +2,7 @@ import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
-import { HausratRoutes } from '@core/service/navigation/navigation.service';
+import { CustomRouting } from '@core/service/navigation/navigation.service';
 import { sharedText } from '@shared/shared.text';
 import { ReplaySubject } from 'rxjs';
 
@@ -40,31 +40,8 @@ describe('ProgressBarComponent', () => {
     page = new Page(fixture, navigationTrigger);
   });
 
-  it(`should mark "${progressBarText.step1}" as active on "${HausratRoutes.absolute.kundendaten}"`, () => {
-    page.navigate(HausratRoutes.absolute.kundendaten);
-    expect(page.active).toEqual(progressBarText.step1);
-    expect(page.completed).toEqual([]);
-    expect(page.open).toEqual([progressBarText.step2, progressBarText.step3, progressBarText.step4]);
-  });
-
-  it(`should mark "${progressBarText.step2}" as active on "${HausratRoutes.absolute.vertragsdaten}"`, () => {
-    page.navigate(HausratRoutes.absolute.vertragsdaten);
-
-    expect(page.active).toEqual(progressBarText.step2);
-    expect(page.completed).toEqual([progressBarText.step1]);
-    expect(page.open).toEqual([progressBarText.step3, progressBarText.step4]);
-  });
-
-  it(`should mark "${progressBarText.step3}" as active on "${HausratRoutes.absolute.zahlungsdaten}"`, () => {
-    page.navigate(HausratRoutes.absolute.zahlungsdaten);
-
-    expect(page.active).toEqual(progressBarText.step3);
-    expect(page.completed).toEqual([progressBarText.step1, progressBarText.step2]);
-    expect(page.open).toEqual([progressBarText.step4]);
-  });
-
-  it(`should mark "${progressBarText.step4} as active on "${HausratRoutes.absolute.uebersicht}"`, () => {
-    page.navigate(HausratRoutes.absolute.uebersicht);
+  it(`should mark "${progressBarText.step4} as active on "${CustomRouting.absolute.uebersicht}"`, () => {
+    page.navigate(CustomRouting.absolute.uebersicht);
 
     expect(page.active).toEqual(progressBarText.step4);
     expect(page.completed).toEqual([progressBarText.step1, progressBarText.step2, progressBarText.step3]);
@@ -72,7 +49,7 @@ describe('ProgressBarComponent', () => {
   });
 
   it('should not be visible on non configured pages', () => {
-    page.navigate(HausratRoutes.absolute.fehler);
+    page.navigate(CustomRouting.absolute.fehler);
 
     expect(page.visible).toEqual(false);
   });

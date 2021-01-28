@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, Input, Output} from '@angular/core';
 import { tarifergebnisText } from '@tarifierung/tarifergebnis/tarifergebnis.text';
 import { sharedText } from '@shared/shared.text';
-import {Tarif, ZahlweiseEnum} from '@tarifierung/tarifierung.model';
+import {Tarif, Region} from '@tarifierung/tarifierung.model';
 
 @Component({
   selector: 'app-tarif',
@@ -14,7 +14,7 @@ export class TarifComponent {
   @Input() tarifdetails!: string[];
   @Input() isSelected = false;
   @Input() topseller = false;
-  @Input() zahlweise!: ZahlweiseEnum;
+  @Input() zahlweise!: Region;
   @Input() defaultpreis: string;
 
   @Output() tarifSelected = new EventEmitter<Tarif>();
@@ -33,10 +33,10 @@ export class TarifComponent {
   getPreis() {
     if (this.tarif.beitraege) {
       switch (this.zahlweise) {
-        case ZahlweiseEnum.inland:
-          return this.tarif.beitraege.inland.brutto;
-        case ZahlweiseEnum.ausland:
-          return this.tarif.beitraege.ausland.brutto;
+        case Region.inland:
+          return this.tarif.beitraege.Inland.unitPrice;
+        case Region.ausland:
+          return this.tarif.beitraege.Ausland.unitPrice;
       }
     }
     return null;

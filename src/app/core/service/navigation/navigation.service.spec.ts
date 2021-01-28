@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Model } from '@core/data-model';
 import { ReplaySubject } from 'rxjs';
 
-import { HausratRoutes, NAVIGATION_DATA, NavigationData, NavigationService } from './navigation.service';
+import { CustomRouting, NAVIGATION_DATA, NavigationData, NavigationService } from './navigation.service';
 
 @Component({template: ''})
 class DummyComponent {
@@ -34,27 +34,27 @@ describe('NavigationService', () => {
   });
 
   it('should save the visited pages on every route change', async () => {
-    navigate(HausratRoutes.absolute.tarifierung);
+    navigate(CustomRouting.absolute.tarifierung);
 
-    expect(model.get().visited).toContain(HausratRoutes.absolute.tarifierung);
+    expect(model.get().visited).toContain(CustomRouting.absolute.tarifierung);
   });
 
   it('should not store visited pages twice', () => {
-    navigate(HausratRoutes.absolute.tarifierung);
-    navigate(HausratRoutes.absolute.tarifierung);
-    navigate(HausratRoutes.absolute.tarifierung);
+    navigate(CustomRouting.absolute.tarifierung);
+    navigate(CustomRouting.absolute.tarifierung);
+    navigate(CustomRouting.absolute.tarifierung);
 
-    expect(model.get().visited).toContain(HausratRoutes.absolute.tarifierung);
+    expect(model.get().visited).toContain(CustomRouting.absolute.tarifierung);
     expect(model.get().visited.length).toBe(1);
   });
 
   it('should store subsequent navigation events', () => {
-    navigate(HausratRoutes.absolute.tarifierung);
-    navigate(HausratRoutes.absolute.tarifergebnis);
-    navigate(HausratRoutes.absolute.kundendaten);
-    expect(model.get().visited).toEqual([HausratRoutes.absolute.tarifierung,
-      HausratRoutes.absolute.tarifergebnis,
-      HausratRoutes.absolute.kundendaten]);
+    navigate(CustomRouting.absolute.tarifierung);
+    navigate(CustomRouting.absolute.tarifergebnis);
+    navigate(CustomRouting.absolute.kundendaten);
+    expect(model.get().visited).toEqual([CustomRouting.absolute.tarifierung,
+      CustomRouting.absolute.tarifergebnis,
+      CustomRouting.absolute.kundendaten]);
   });
 
   function navigate(url: string) {

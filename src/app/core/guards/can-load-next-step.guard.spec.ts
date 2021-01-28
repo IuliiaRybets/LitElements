@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Model } from '@core/data-model';
-import { HausratRoutes, NAVIGATION_DATA, NavigationData } from '@core/service/navigation/navigation.service';
+import { CustomRouting, NAVIGATION_DATA, NavigationData } from '@core/service/navigation/navigation.service';
 import { environment } from '../../../environments/environment';
 
 import { CanLoadNextStepGuard } from './can-load-next-step.guard';
@@ -39,7 +39,7 @@ describe('CanLoadNextStepGuard', () => {
   it('should allow navigation when visited page satisfies prerequisites', async () => {
     model.patch({visited: ['/tarifierung']});
 
-    await router.navigate([HausratRoutes.absolute.tarifergebnis]);
+    await router.navigate([CustomRouting.absolute.tarifergebnis]);
 
     expect(location.path()).toBe('/tarifierung/tarifergebnis');
   });
@@ -47,7 +47,7 @@ describe('CanLoadNextStepGuard', () => {
   it('should not allow navigation when not visited prerequisites', async () => {
     model.patch({visited: ['none']});
 
-    await router.navigate([HausratRoutes.absolute.tarifergebnis]);
+    await router.navigate([CustomRouting.absolute.tarifergebnis]);
 
     expect(location.path()).toBe('/tarifierung');
   });

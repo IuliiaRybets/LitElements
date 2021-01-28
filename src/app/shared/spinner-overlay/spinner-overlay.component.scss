@@ -17,7 +17,7 @@
   z-index: 999;
   position: absolute;
   left: calc(50vw - 131px);
-  background: $ruv-sand;
+  background: $el-sand;
   display: flex;
   align-items: center;
   width: 261px;
@@ -41,7 +41,7 @@
   stroke-dashoffset: -35;
   animation: dash 1.8s ease-in-out infinite;
   stroke-linecap: round;
-  stroke: $ruv-blue;
+  stroke: $el-blue;
 }
 
 @keyframes rotate-loader {

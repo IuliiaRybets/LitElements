@@ -27,10 +27,10 @@ select.form {
 .product-text {
   width: 100%;
   padding: 20px;
-  background-color: $ruv-blue;
+  background-color: $el-blue;
 
   h2 {
-    color: $ruv-orange-light;
+    color: $el-orange-light;
   }
 
   p {
@@ -65,7 +65,7 @@ select.form {
 @media screen and (min-width: $breakpoint-medium) {
 
   .product-pic {
-    background-image: url("../../../assets/images/hausratversicherung_ruv.jpg");
+    background-image: url("../../../assets/images/mainPic.jpg");
     background-size: cover;
     width: 50%;
     height: 300px;
@@ -78,10 +78,10 @@ select.form {
   }
 
   .container-input {
-    width: 80%;
+    width: 100%;
     min-width: 640px;
     margin-top: -80px;
-    background-color: $ruv-sand;
+    background-color: $el-sand;
   }
 
   .input-container {

@@ -4,7 +4,7 @@
 $base-size: 1.125rem;
 
 .hinweis {
-  background-color: $ruv-sand;
+  background-color: $el-sand;
   padding: 10px;
   position: relative;
 
@@ -20,7 +20,7 @@ $base-size: 1.125rem;
       height: $base-size*2;
       width: $base-size*2;
       border-radius: 50%;
-      border: 2px solid $ruv-blue;
+      border: 2px solid $el-blue;
       position: absolute;
       top: calc(50% - #{$base-size});
       left: $base-size;

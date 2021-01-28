@@ -7,31 +7,31 @@ input[type="number"],
 input[type="tel"],
 select {
   box-sizing: border-box;
-  @include border($ruv-ui-grey-3);
+  @include border($el-ui-grey-3);
   height: 50px;
   padding: 0.7rem 1.625rem;
-  color: $ruv-blue;
+  color: $el-blue;
   width: 100%;
   font-size: 1.25rem;
   background-color: white;
 
   &:hover {
-    border: 1px solid $ruv-blue;
+    border: 1px solid $el-blue;
   }
 
   &:focus {
-    border: 1px solid $ruv-mint;
+    border: 1px solid $el-mint;
     outline: 0;
   }
 
 }
 
 input[disabled] {
-  color: $ruv-ui-grey-3;
-  border: 1px solid $ruv-ui-grey-3;
+  color: $el-ui-grey-3;
+  border: 1px solid $el-ui-grey-3;
 
   &:hover {
-    border: 1px solid $ruv-ui-grey-3;
+    border: 1px solid $el-ui-grey-3;
   }
 }
 

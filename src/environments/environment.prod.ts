@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   endpoints: {
-    vorversicherer: './api/vorversicherer/service/hausrat-vorversichererliste.js',
+    vorversicherer: './api/vorversicherer/service/test-vorversichererliste.js',
     nationalitaeten: './api/nationalitaeten/v2/',
     tarife: './api/tarifierung/hr/angebot/tarife',
     bankverbindung: './api/bankverbindung/service/bankverbindung/bankdaten',

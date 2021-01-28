@@ -51,8 +51,7 @@ export const tarifergebnisText = {
   zusatzleistungGewaehlt: 'Ausgewählt',
 
   downloadTarifdetailsLink: 'Leistungsübersicht herunterladen (PDF)',
-  linkTarifdetails: 'https://www.ruv.de/dam/jcr/privatkunden/downloads/hausrat-leistungsuebersicht.pdf',
-
+ 
   tarife: {
     basic: {
       defaultPreis: '59,99 EUR',
@@ -61,9 +60,7 @@ export const tarifergebnisText = {
         'Außenversicherungsschutz (z.B. im Urlaub) für 6 Monate',
         'Wertsachen (z.B. Schmuck und Bargeld) sind bis zu 200 EUR je m² Wohnfläche mitversichert'
       ],
-      versicherungsbedingungen_link: `
-      https://www.ruv.de/dam/jcr/privatkunden/downloads/versicherungsbedingungen/versicherungsbedingungen-hausrat-basic.pdf`
-    },
+       },
     classic: {
       defaultPreis: '99,99 EUR',
       tarifdetails: [
@@ -74,9 +71,7 @@ export const tarifergebnisText = {
         'Einbruchdiebstahl aus dem Auto',
         'Innovationsgarantie'
       ],
-      versicherungsbedingungen_link: `
-      https://www.ruv.de/dam/jcr/privatkunden/downloads/versicherungsbedingungen/versicherungsbedingungen-hausrat-classic.pdf`
-    },
+      },
     comfort: {
       defaultPreis: '129,99 EUR',
       tarifdetails: [
@@ -89,8 +84,6 @@ export const tarifergebnisText = {
         'Sturm- und Hagelschäden bei Gartenmöbeln und -inventar (z.B. Trampolin)',
         'Trickdiebstahl in der Wohnung'
       ],
-      versicherungsbedingungen_link:
-        `https://www.ruv.de/dam/jcr/privatkunden/downloads/versicherungsbedingungen/versicherungsbedingungen-hausrat-comfort.pdf`
     }
   },
   preisanzeige: {
